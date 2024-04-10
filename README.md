@@ -7,7 +7,7 @@ Abstract the components and functions used in the project
 For redcue maintenance pressure, current only support `git subtree` import
 
 ```bash
-git subtree add --prefix=subtrees/oooo-components https://github.com/l2-bridge/oooo-components.git main --squash
+git subtree add --prefix=subtrees/oooo-components git@github.com:l2-bridge/oooo-components.git main --squash
 ```
 
 ### Tailwind

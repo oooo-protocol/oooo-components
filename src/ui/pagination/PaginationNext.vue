@@ -27,3 +27,4 @@ const delegatedProps = computed(() => {
     </Button>
   </PaginationNext>
 </template>
+@/ui/button
