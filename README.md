@@ -7,7 +7,7 @@ Abstract the components and functions used in the project
 For redcue maintenance pressure, current only support `git subtree` import
 
 ```bash
-git subtree add --prefix=subtrees/oooo-components git@github.com:l2-bridge/oooo-components.git main --squash
+git submodule add git@github.com:l2-bridge/oooo-components.git submodules/oooo-components
 ```
 
 ### Tailwind
@@ -107,4 +107,9 @@ export const plugins = [animate]
 ```ts
 // main.ts
 import '@/components/ui/tailwind.css'
+```
+
+### Update
+```bash
+git submodule update
 ```
