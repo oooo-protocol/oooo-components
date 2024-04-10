@@ -29,7 +29,7 @@ export default defineConfig(() => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src')
+        'oooo-components': path.resolve(__dirname, 'src')
       }
     }
   }

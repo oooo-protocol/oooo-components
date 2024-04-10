@@ -10,7 +10,7 @@
   },
   "framework": "vite",
   "aliases": {
-    "components": "@/",
-    "utils": "@/lib/utils"
+    "components": "oooo-components/",
+    "utils": "oooo-components/lib/utils"
   }
 }

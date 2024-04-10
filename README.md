@@ -106,10 +106,40 @@ export const plugins = [animate]
 
 ```ts
 // main.ts
-import '@/components/ui/tailwind.css'
+import 'oooo-components/components/ui/tailwind.css'
 ```
 
 ### Update
 ```bash
 git submodule update
+```
+
+## Config
+Project use `oooo-components` alias to associate with different components
+
+```ts
+// vite.config.ts
+{
+  ...
+  resolve: {
+    alias: {
+      'oooo-components': path.resolve(__dirname, 'submodules/oooo-components/src')
+    }
+  }
+}
+```
+
+```ts
+// tsconfig.json
+{
+  "compilerOptions": {
+    ...
+    "paths": {
+      ...
+      "oooo-components/*": [
+        "submodules/oooo-components/src/*"
+      ]
+    }
+  }
+}
 ```

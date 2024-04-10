@@ -17,16 +17,16 @@
     "noEmit": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": [
+      "oooo-components/*": [
         "src/*"
       ]
     }
   },
   "include": [
-    "app/**/*.ts",
-    "app/**/*.d.ts",
-    "app/**/*.tsx",
-    "app/**/*.vue",
+    "example/**/*.ts",
+    "example/**/*.d.ts",
+    "example/**/*.tsx",
+    "example/**/*.vue",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",

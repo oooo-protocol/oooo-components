@@ -2,7 +2,7 @@
 import type { VariantProps } from 'class-variance-authority'
 import { Primitive, type PrimitiveProps } from 'radix-vue'
 import { buttonVariants } from '.'
-import { cn } from '@/lib/utils'
+import { cn } from 'oooo-components/lib/utils'
 
 interface ButtonVariantProps extends VariantProps<typeof buttonVariants> {}
 

@@ -3,7 +3,7 @@ import {
   SelectItem,
   type SelectItemProps
 } from 'radix-vue'
-import { cn } from '@/lib/utils'
+import { cn } from 'oooo-components/lib/utils'
 
 const props = defineProps<SelectItemProps & { class?: string }>()
 </script>

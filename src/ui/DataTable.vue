@@ -14,7 +14,7 @@ import {
   TableHeader,
   TableRow
 } from './table'
-import { valueUpdater } from '@/lib/utils'
+import { valueUpdater } from 'oooo-components/lib/utils'
 import { ref } from 'vue'
 
 const props = defineProps<{

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
+import { Button } from 'oooo-components/ui/button'
 </script>
 
 <template>
