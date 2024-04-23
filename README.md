@@ -3,15 +3,28 @@ Abstract the components and functions used in the project
 
 ## Setup
 
-### Import
+### Import Prject
 For redcue maintenance pressure, current only support `git subtree` import
 
 ```bash
 git submodule add git@github.com:l2-bridge/oooo-components.git submodules/oooo-components
 ```
 
-### Tailwind
+### Import dependencies
+```bash
+pnpm i @tanstack/vue-table @preflower/utils clsx decimal.js-light radix-vue tailwind-merge vee-validate
+```
+
+### Config
+
+#### Tailwind
 Project default use `shadcn-vue`, so we need update `tailwindcss` config
+
+We need use `postcss-import` to support build time import, more info can follow: https://tailwindcss.com/docs/using-with-preprocessors#build-time-imports
+
+```bash
+pnpm i -D postcss-import
+```
 
 ```js
 // tailwind.config.js
@@ -21,6 +34,7 @@ import animate from 'tailwindcss-animate'
 export const darkMode = ['class']
 export const safelist = ['dark']
 export const content = [
+  './submodules/**/*.{ts,tsx,vue}',
   './pages/**/*.{ts,tsx,vue}',
   './components/**/*.{ts,tsx,vue}',
   './example/**/*.{ts,tsx,vue}',
@@ -104,17 +118,23 @@ export const theme = {
 export const plugins = [animate]
 ```
 
+```css
+- @tailwind base;
+- @tailwind components;
+- @tailwind utilities;
+
++ @import "tailwindcss/base";
++ @import "tailwindcss/components";
++ @import "tailwindcss/utilities";
++ @import "oooo-components/ui/tailwind.css";
+```
+
 ```ts
 // main.ts
-import 'oooo-components/components/ui/tailwind.css'
+import 'oooo-components/ui/tailwind.css'
 ```
 
-### Update
-```bash
-git submodule update
-```
-
-## Config
+#### Alias
 Project use `oooo-components` alias to associate with different components
 
 ```ts

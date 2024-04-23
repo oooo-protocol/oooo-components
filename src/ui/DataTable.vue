@@ -16,15 +16,21 @@ import {
 } from './table'
 import { valueUpdater } from 'oooo-components/lib/utils'
 import { ref } from 'vue'
+import { Loader2 } from 'lucide-vue-next'
 
 const props = defineProps<{
   columns: Array<ColumnDef<TData, TValue>>
   data: TData[]
+  loading?: boolean
 }>()
 
 const sorting = ref<SortingState>([])
 
 const table = useVueTable({
+  defaultColumn: {
+    size: 0,
+    minSize: 0
+  },
   get data () { return props.data },
   get columns () { return props.columns },
   getCoreRowModel: getCoreRowModel(),
@@ -33,7 +39,6 @@ const table = useVueTable({
   state: {
     get sorting () { return sorting.value }
   }
-
 })
 </script>
 
@@ -47,6 +52,7 @@ const table = useVueTable({
         <TableHead
           v-for="header in headerGroup.headers"
           :key="header.id"
+          :width="header.getSize() !== 0 ? header.getSize() : undefined"
         >
           <FlexRender
             v-if="!header.isPlaceholder"
@@ -56,7 +62,7 @@ const table = useVueTable({
         </TableHead>
       </TableRow>
     </TableHeader>
-    <TableBody>
+    <TableBody class="relative">
       <template v-if="table.getRowModel().rows?.length">
         <TableRow
           v-for="row in table.getRowModel().rows"
@@ -77,13 +83,16 @@ const table = useVueTable({
       <template v-else>
         <TableRow>
           <TableCell
-            :colspan="columns.length"
+            :colSpan="columns.length"
             class="h-24 text-center"
           >
-            No results.
+            NO RESULTS.
           </TableCell>
         </TableRow>
       </template>
+      <div class="absolute top-0 flex justify-center items-center w-full h-full bg-background/50" v-if="loading">
+        <Loader2 class="w-6 h-6 animate-spin" />
+      </div>
     </TableBody>
   </Table>
 </template>

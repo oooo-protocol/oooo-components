@@ -19,7 +19,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     v-bind="forwardedProps"
     :class="
       cn(
-        'tracking-[1px]',
+        'pl-[48px] -tracking-tighter text-right',
         props.class,
       )
     "

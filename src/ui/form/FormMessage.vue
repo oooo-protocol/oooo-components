@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ErrorMessage } from 'vee-validate'
-import Icon from 'oooo-components/components/Icon.vue'
+import Icon from 'oooo-components/ui/Icon.vue'
 
 defineProps<{
   name: string
