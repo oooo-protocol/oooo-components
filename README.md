@@ -82,6 +82,10 @@ export const theme = {
       card: {
         DEFAULT: 'hsl(var(--card))',
         foreground: 'hsl(var(--card-foreground))'
+      },
+      modal: {
+        DEFAULT: 'hsl(var(--modal))',
+        foreground: 'hsl(var(--popover-foreground))'
       }
     },
     borderRadius: {

@@ -45,7 +45,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 0 0% 38%;
  
-    --popover: 210 5% 7%;
+    --popover: 140 6% 19%;
     --popover-foreground: 210 40% 98%;
  
     --card: 222.2 84% 4.9%;
@@ -67,5 +67,7 @@
     --destructive-foreground: 210 40% 98%;
  
     --ring: 212.7 26.8% 83.9%;
+
+    --modal: 210 5% 7%;
   }
 }
