@@ -16,15 +16,19 @@ export function valueUpdater<T extends Updater<any>> (updaterOrValue: T, ref: Re
 
 /**
  * use `URL.createObjectURL` to generate uuid, `URL.createObjectURL` will return a uuid string in url's end
- * @returns 
+ * @returns
  */
-export function uuid() {
-  var temp_url = URL.createObjectURL(new Blob());
+export function uuid () {
+  const tempUrl = URL.createObjectURL(new Blob())
   /**
    * Example
    * blob:https://xxx.com/b250d159-e1b6-4a87-9002-885d90033be3
    */
-  var uuid = temp_url.toString();
-  URL.revokeObjectURL(temp_url);
-  return uuid.substring(uuid.lastIndexOf("/") + 1);
+  const uuid = tempUrl.toString()
+  URL.revokeObjectURL(tempUrl)
+  return uuid.substring(uuid.lastIndexOf('/') + 1)
+}
+
+export function formatHashWithEllipsis (hash: string, front = 6, tail = 4) {
+  return `${hash.substring(0, front)}...${hash.substring(hash.length - tail)}`
 }
