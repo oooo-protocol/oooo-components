@@ -4,7 +4,7 @@ Abstract the components and functions used in the project
 ## Setup
 
 ### Import Prject
-For redcue maintenance pressure, current only support `git subtree` import
+For redcue maintenance pressure, current only support `git submodule` import
 
 ```bash
 git submodule add git@github.com:l2-bridge/oooo-components.git submodules/oooo-components
@@ -12,7 +12,7 @@ git submodule add git@github.com:l2-bridge/oooo-components.git submodules/oooo-c
 
 ### Import dependencies
 ```bash
-pnpm i @tanstack/vue-table @preflower/utils clsx decimal.js-light radix-vue tailwind-merge vee-validate
+pnpm i @tanstack/vue-table @tanstack/vue-query @preflower/utils clsx decimal.js-light radix-vue tailwind-merge vee-validate
 ```
 
 ### Config
