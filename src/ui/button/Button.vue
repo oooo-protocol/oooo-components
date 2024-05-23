@@ -11,6 +11,7 @@ interface Props extends PrimitiveProps {
   variant?: ButtonVariantProps['variant']
   size?: ButtonVariantProps['size']
   as?: string
+  disabled?: boolean
   loading?: boolean
 }
 
@@ -26,9 +27,12 @@ withDefaults(defineProps<Props>(), {
     :as="as"
     :as-child="asChild"
     :class="cn(buttonVariants({ variant, size }), $attrs.class ?? '')"
-    :disabled="loading"
+    :disabled="disabled || loading"
   >
-    <Loader2 v-if="loading" class="w-4 h-4 mr-2 animate-spin" />
+    <Loader2
+      v-if="loading"
+      class="shrink-0 w-4 h-4 mr-2 animate-spin"
+    />
     <slot />
   </Primitive>
 </template>
