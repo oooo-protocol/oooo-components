@@ -3,8 +3,10 @@ import Wrapper from '../wrapper'
 import { OKXBitcoinWallet } from '../wallet/okx-bitcoin'
 import { UnisatWallet } from '../wallet/unisat'
 
+const network = import.meta.env.VITE_NETWORK ?? 'livenet'
+
 const wrapper = new Wrapper<BitcoinWalletImpl>(
-  'oooo-btc-wallet',
+  `oooo-${network}-btc-wallet`,
   {
     [WALLET.OKX_BITCOIN]: OKXBitcoinWallet,
     [WALLET.UNISAT]: UnisatWallet
