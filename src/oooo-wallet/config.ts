@@ -2,6 +2,7 @@ import OKX_IMAGE from './images/okx.png'
 import ONEKEY_IMAGE from './images/onekey.png'
 import METAMASK_IMAGE from './images/metamask.png'
 import UNISAT_IMAGE from './images/unisat.png'
+import BYBIT_IMAGE from './images/bybit.png'
 import { WALLET } from './types'
 
 export const WALLET_CONFIG_MAP = {
@@ -34,6 +35,11 @@ export const WALLET_CONFIG_MAP = {
     name: 'ONEKEY',
     value: WALLET.ONEKEY_BITCOIN,
     image: ONEKEY_IMAGE
+  },
+  [WALLET.BYBIT]: {
+    name: 'BYBIT',
+    value: WALLET.BYBIT,
+    image: BYBIT_IMAGE
   }
 }
 

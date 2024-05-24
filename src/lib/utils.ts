@@ -32,3 +32,5 @@ export function uuid () {
 export function formatHashWithEllipsis (hash: string, front = 6, tail = 4) {
   return `${hash.substring(0, front)}...${hash.substring(hash.length - tail)}`
 }
+
+export const EVM_ADDRESS_REGEXP = /^(0x)[0-9A-Fa-f]{40}$/

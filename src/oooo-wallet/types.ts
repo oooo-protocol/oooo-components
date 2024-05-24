@@ -4,7 +4,8 @@ export enum WALLET {
   UNISAT,
   OKX_BITCOIN,
   ONEKEY,
-  ONEKEY_BITCOIN
+  ONEKEY_BITCOIN,
+  BYBIT
 }
 
 export enum WALLET_TYPE {
@@ -53,7 +54,7 @@ export interface EthereumWalletImpl extends WalletImpl {
   getNativeBalance: (address: string, rpc: string) => Promise<string>
   getTokenBalance: (address: string, rpc: string, contractAddress: string) => Promise<string>
   transfer: (parameter: TransactionParameter, chain: ChainConfig) => Promise<string>
-  tokenTransfer: (parameter: TransactionParameter, contractAddress: string) => Promise<string>
+  tokenTransfer: (parameter: TransactionParameter, chain: ChainConfig, contractAddress: string) => Promise<string>
   switchToChain: (config: ChainConfig) => Promise<void>
 }
 

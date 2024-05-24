@@ -1,6 +1,7 @@
 import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../types'
 import { ethers, formatEther, toBeHex, toUtf8Bytes, hexlify } from 'ethers'
 import { NoAlarmException } from 'oooo-components/lib/exception'
+import { EVM_ADDRESS_REGEXP } from 'oooo-components/lib/utils'
 
 const ERC20_ABI = [
   {
@@ -108,18 +109,23 @@ export class EthereumWallet implements EthereumWalletImpl {
     const provider = new ethers.JsonRpcProvider(rpc)
     try {
       const contract = new ethers.Contract(contractAddress, ERC20_ABI, provider)
-      const balance = await contract.getBalance(address)
+      const balance = await contract.balanceOf(address)
       return formatEther(balance)
     } finally {
       provider.destroy()
     }
   }
 
-  async tokenTransfer (parameter: TransactionParameter, contractAddress: string) {
+  async tokenTransfer (parameter: TransactionParameter, config: ChainConfig, contractAddress: string) {
     const provider = new ethers.BrowserProvider(this.provider)
     try {
-      const contract = new ethers.Contract(contractAddress, ERC20_ABI, provider)
-      return await contract.transfer(parameter.to, parameter.value)
+      const signer = await provider.getSigner()
+      const contract = new ethers.Contract(contractAddress, ERC20_ABI, signer)
+      const { hash } = await contract.transfer(
+        parameter.to,
+        toBeHex(ethers.parseUnits(parameter.value, config.nativeCurrency.decimals))
+      )
+      return hash
     } finally {
       provider.destroy()
     }
@@ -157,7 +163,12 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async onAccountChanged (event: onAccountChangedEvent) {
     await this.provider.on('accountsChanged', (accounts: string[]) => {
-      event(accounts[0])
+      const account = accounts[0]
+      if (EVM_ADDRESS_REGEXP.test(account)) {
+        event(account)
+      } else {
+        event(undefined)
+      }
     })
   }
 }
