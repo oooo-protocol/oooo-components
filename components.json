@@ -11,6 +11,7 @@
   "framework": "vite",
   "aliases": {
     "components": "oooo-components/",
-    "utils": "oooo-components/lib/utils"
+    "utils": "oooo-components/lib/utils",
+    "ui": "src/ui"
   }
 }
