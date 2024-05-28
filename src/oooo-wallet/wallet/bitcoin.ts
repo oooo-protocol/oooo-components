@@ -28,6 +28,9 @@ export class BitcoinWallet implements BitcoinWalletImpl {
 
   async disconnect () {
     void this.provider.removeAllListeners()
+    try {
+      await this.provider.disconnect()
+    } catch (e) {}
   }
 
   async sign (message: string) {

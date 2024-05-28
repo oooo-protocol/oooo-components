@@ -6,10 +6,4 @@ export class OKXBitcoinWallet extends BitcoinWallet {
     if (window.okxwallet.bitcoin == null) throw new NoAlarmException('Please install OKX Wallet')
     return window.okxwallet.bitcoin
   }
-
-  async disconnect () {
-    try {
-      await this.provider.disconnect()
-    } catch (e) {}
-  }
 }

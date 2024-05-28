@@ -40,6 +40,11 @@ export const WALLET_CONFIG_MAP = {
     name: 'BYBIT',
     value: WALLET.BYBIT,
     image: BYBIT_IMAGE
+  },
+  [WALLET.BYBIT_BITCOIN]: {
+    name: 'BYBIT',
+    value: WALLET.BYBIT_BITCOIN,
+    image: BYBIT_IMAGE
   }
 }
 
@@ -50,7 +55,8 @@ export const BTC_TESTNET_WALLETS = [
 export const BTC_LIVENET_WALLET = [
   WALLET.UNISAT,
   WALLET.OKX_BITCOIN,
-  WALLET.ONEKEY_BITCOIN
+  WALLET.ONEKEY_BITCOIN,
+  WALLET.BYBIT_BITCOIN
 ]
 
 export const EVM_WALLETS = [
