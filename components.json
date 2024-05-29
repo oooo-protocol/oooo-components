@@ -12,6 +12,6 @@
   "aliases": {
     "components": "oooo-components/",
     "utils": "oooo-components/lib/utils",
-    "ui": "src/ui"
+    "ui": "oooo-components/ui"
   }
 }

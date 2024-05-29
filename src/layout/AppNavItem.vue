@@ -15,9 +15,7 @@ const props = defineProps<{
   menu: Menu
 }>()
 
-const emits = defineEmits<{
-  (e: 'close'): void
-}>()
+const emits = defineEmits<(e: 'close') => void>()
 
 const onClick = () => {
   if (props.menu.closable) {

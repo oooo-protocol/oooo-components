@@ -4,7 +4,7 @@ import type { WithClassAsProps } from './interface'
 import { cn } from 'oooo-components/lib/utils'
 
 defineOptions({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 
 const props = defineProps<WithClassAsProps>()
@@ -13,7 +13,10 @@ const { carouselRef, orientation } = useCarousel()
 </script>
 
 <template>
-  <div ref="carouselRef" class="overflow-hidden">
+  <div
+    ref="carouselRef"
+    class="overflow-hidden"
+  >
     <div
       :class="
         cn(

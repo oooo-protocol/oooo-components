@@ -32,9 +32,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "*.d.ts",
-    "*.config.ts",
     "tailwind.config.js",
-    "postcss.config.js"
+    "postcss.config.js",
+    "**/config/tailwind.preset.js"
   ],
   "references": [
     {

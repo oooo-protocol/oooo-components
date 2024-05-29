@@ -4,7 +4,7 @@ import type { CarouselEmits, CarouselProps, WithClassAsProps } from './interface
 import { cn } from 'oooo-components/lib/utils'
 
 const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
-  orientation: 'horizontal',
+  orientation: 'horizontal'
 })
 
 const emits = defineEmits<CarouselEmits>()
@@ -13,7 +13,7 @@ const carouselArgs = useProvideCarousel(props, emits)
 
 defineExpose(carouselArgs)
 
-function onKeyDown(event: KeyboardEvent) {
+function onKeyDown (event: KeyboardEvent) {
   const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
   const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'
 

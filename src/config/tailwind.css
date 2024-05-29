@@ -71,3 +71,12 @@
     --modal: 210 5% 7%;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
