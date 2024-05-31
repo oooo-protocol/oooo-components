@@ -63,7 +63,7 @@ export default {
 + @import "tailwindcss/base";
 + @import "tailwindcss/components";
 + @import "tailwindcss/utilities";
-+ @import "oooo-components/ui/tailwind.css";
++ @import "oooo-components/config/tailwind.css";
 ```
 
 #### Alias
