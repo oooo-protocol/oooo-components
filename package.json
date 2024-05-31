@@ -15,6 +15,7 @@
     "@tanstack/vue-table": "^8.15.3",
     "@types/js-cookie": "^3.0.6",
     "@vueuse/core": "^10.10.0",
+    "bitcoin-address-validation": "^2.2.3",
     "clsx": "^2.1.0",
     "decimal.js-light": "^2.5.1",
     "embla-carousel": "^8.1.3",
