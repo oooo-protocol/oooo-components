@@ -63,7 +63,7 @@ export default class OoooWalletWrapper<T extends WalletImpl> {
      */
     const toLowcaseAddress = address.toLocaleLowerCase()
     if (accounts.includes(toLowcaseAddress)) {
-      this.instance.onAccountChanged(this.handleAddressChanged)
+      this.instance.onAccountChanged(this.handleAddressChanged.bind(this))
     } else {
       void this.onLogout()
     }
