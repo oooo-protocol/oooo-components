@@ -1,12 +1,12 @@
 export enum WALLET {
-  METAMASK,
-  OKX,
-  UNISAT,
-  OKX_BITCOIN,
-  ONEKEY,
-  ONEKEY_BITCOIN,
-  BYBIT,
-  BYBIT_BITCOIN
+  METAMASK = 'metamask',
+  OKX = 'okx',
+  UNISAT = 'unisat',
+  OKX_BITCOIN = 'okx bitcoin',
+  ONEKEY = 'onekey',
+  ONEKEY_BITCOIN = 'onekey bitcoin',
+  BYBIT = 'bybit',
+  BYBIT_BITCOIN = 'bybit bitcoin'
 }
 
 export enum WALLET_TYPE {
