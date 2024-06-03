@@ -1,13 +1,4 @@
-import Cookies from 'js-cookie'
-
-/**
- * Get current second level domain, not include port
- */
-function getDomain (): string {
-  const host = window.location.hostname
-  const segments = host.split('.')
-  return segments.slice(-2).join('.')
-}
+import { storage } from '@preflower/utils'
 
 export default class Storage {
   readonly #key: string
@@ -17,19 +8,14 @@ export default class Storage {
   }
 
   set (value: any) {
-    Cookies.set(this.#key, JSON.stringify(value), { domain: getDomain() })
+    storage.local.set(this.#key, value)
   }
 
-  get<T = any> (): T | undefined {
-    const result = Cookies.get(this.#key)
-    try {
-      return result != null ? JSON.parse(result) : undefined
-    } catch {
-      return result as T
-    }
+  get<T = any> () {
+    return storage.local.get<T>(this.#key)
   }
 
   remove () {
-    Cookies.remove(this.#key)
+    storage.local.remove(this.#key)
   }
 }

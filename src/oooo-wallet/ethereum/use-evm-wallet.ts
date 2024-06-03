@@ -5,10 +5,8 @@ import { OKXEthereumWallet } from '../wallet/okx-evm'
 import { OnekeyEthereumWallet } from '../wallet/onekey-evm'
 import { BybitEthereumWallet } from '../wallet/bybit-evm'
 
-const network = import.meta.env.VITE_NETWORK ?? 'livenet'
-
 const wrapper = new Wrapper<EthereumWalletImpl>(
-  `oooo-${network}-evm-wallet`,
+  'oooo-evm-wallet',
   {
     [WALLET.METAMASK]: MetamaskWallet,
     [WALLET.OKX]: OKXEthereumWallet,
