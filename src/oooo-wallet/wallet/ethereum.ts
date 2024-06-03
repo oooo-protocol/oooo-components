@@ -1,5 +1,5 @@
 import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../types'
-import { ethers, formatEther, toBeHex, toUtf8Bytes, hexlify } from 'ethers'
+import { ethers, formatEther, toBeHex, toUtf8Bytes, hexlify, formatUnits } from 'ethers'
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { EVM_ADDRESS_REGEXP } from 'oooo-components/lib/utils'
 
@@ -31,6 +31,19 @@ const ERC20_ABI = [
     ],
     payable: false,
     stateMutability: 'nonpayable',
+    type: 'function'
+  }, {
+    constant: true,
+    inputs: [],
+    name: 'decimals',
+    outputs: [
+      {
+        name: '',
+        type: 'uint8'
+      }
+    ],
+    payable: false,
+    stateMutability: 'view',
     type: 'function'
   }
 ]
@@ -110,7 +123,8 @@ export class EthereumWallet implements EthereumWalletImpl {
     try {
       const contract = new ethers.Contract(contractAddress, ERC20_ABI, provider)
       const balance = await contract.balanceOf(address)
-      return formatEther(balance)
+      const decimals = await contract.decimals()
+      return formatUnits(balance, decimals)
     } finally {
       provider.destroy()
     }
