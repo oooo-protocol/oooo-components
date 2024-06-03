@@ -130,14 +130,15 @@ export class EthereumWallet implements EthereumWalletImpl {
     }
   }
 
-  async tokenTransfer (parameter: TransactionParameter, config: ChainConfig, contractAddress: string) {
+  async tokenTransfer (parameter: TransactionParameter, contractAddress: string) {
     const provider = new ethers.BrowserProvider(this.provider)
     try {
       const signer = await provider.getSigner()
       const contract = new ethers.Contract(contractAddress, ERC20_ABI, signer)
+      const decimals = await contract.decimals()
       const transferParam = [
         parameter.to,
-        toBeHex(ethers.parseUnits(parameter.value, config.nativeCurrency.decimals))
+        toBeHex(ethers.parseUnits(parameter.value, decimals))
       ]
       const gasLimit = await contract.transfer.estimateGas(...transferParam)
       const { hash } = await contract.transfer(
