@@ -4,6 +4,7 @@ import { OKXBitcoinWallet } from '../wallet/okx-bitcoin'
 import { UnisatWallet } from '../wallet/unisat'
 import { BybitBitcoinWallet } from '../wallet/bybit-bitcoin'
 import { OnekeyBitcoinWallet } from '../wallet/onekey-bitcoin'
+import { BitgetBitcoinWallet } from '../wallet/bitget-bitcoin'
 
 const wrapper = new Wrapper<BitcoinWalletImpl>(
   'oooo-btc-wallet',
@@ -11,7 +12,8 @@ const wrapper = new Wrapper<BitcoinWalletImpl>(
     [WALLET.OKX_BITCOIN]: OKXBitcoinWallet,
     [WALLET.UNISAT]: UnisatWallet,
     [WALLET.ONEKEY_BITCOIN]: OnekeyBitcoinWallet,
-    [WALLET.BYBIT_BITCOIN]: BybitBitcoinWallet
+    [WALLET.BYBIT_BITCOIN]: BybitBitcoinWallet,
+    [WALLET.BITGET_BITCOIN]: BitgetBitcoinWallet
   }
 )
 
