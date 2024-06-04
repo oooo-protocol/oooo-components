@@ -59,7 +59,7 @@ export const WALLET_CONFIG_MAP = {
     image: BITGET_IMAGE
   },
   [WALLET.TOKENPOCKET]: {
-    name: 'TOKENPOCKET',
+    name: 'TOKEN POCKET',
     value: WALLET.TOKENPOCKET,
     image: TOKENPOCKET_IMAGE
   }
