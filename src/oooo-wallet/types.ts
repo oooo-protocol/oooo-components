@@ -8,7 +8,8 @@ export enum WALLET {
   BYBIT,
   BYBIT_BITCOIN,
   BITGET,
-  BITGET_BITCOIN
+  BITGET_BITCOIN,
+  TOKENPOCKET
 }
 
 export enum WALLET_TYPE {

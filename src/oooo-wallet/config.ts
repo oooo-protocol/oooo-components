@@ -4,6 +4,7 @@ import METAMASK_IMAGE from './images/metamask.png'
 import UNISAT_IMAGE from './images/unisat.png'
 import BYBIT_IMAGE from './images/bybit.png'
 import BITGET_IMAGE from './images/bitget.png'
+import TOKENPOCKET_IMAGE from './images/tokenpocket.png'
 import { WALLET } from './types'
 
 export const WALLET_CONFIG_MAP = {
@@ -56,6 +57,11 @@ export const WALLET_CONFIG_MAP = {
     name: 'BITGET',
     value: WALLET.BITGET_BITCOIN,
     image: BITGET_IMAGE
+  },
+  [WALLET.TOKENPOCKET]: {
+    name: 'TOKENPOCKET',
+    value: WALLET.TOKENPOCKET,
+    image: TOKENPOCKET_IMAGE
   }
 }
 
@@ -66,15 +72,16 @@ export const BTC_TESTNET_WALLETS = [
 export const BTC_LIVENET_WALLET = [
   WALLET.UNISAT,
   WALLET.OKX_BITCOIN,
-  WALLET.ONEKEY_BITCOIN,
+  WALLET.BITGET_BITCOIN,
   WALLET.BYBIT_BITCOIN,
-  WALLET.BITGET_BITCOIN
+  WALLET.ONEKEY_BITCOIN
 ]
 
 export const EVM_WALLETS = [
   WALLET.METAMASK,
   WALLET.OKX,
-  WALLET.ONEKEY,
+  WALLET.BITGET,
+  WALLET.TOKENPOCKET,
   WALLET.BYBIT,
-  WALLET.BITGET
+  WALLET.ONEKEY
 ]

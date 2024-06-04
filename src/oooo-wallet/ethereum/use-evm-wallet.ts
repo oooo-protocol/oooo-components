@@ -5,6 +5,7 @@ import { OKXEthereumWallet } from '../wallet/okx-evm'
 import { OnekeyEthereumWallet } from '../wallet/onekey-evm'
 import { BybitEthereumWallet } from '../wallet/bybit-evm'
 import { BitgetEthereumWallet } from '../wallet/bitget-evm'
+import { TokenPocketEthereumWallet } from '../wallet/tokenpocket-evm'
 
 const wrapper = new Wrapper<EthereumWalletImpl>(
   'oooo-evm-wallet',
@@ -13,7 +14,8 @@ const wrapper = new Wrapper<EthereumWalletImpl>(
     [WALLET.OKX]: OKXEthereumWallet,
     [WALLET.ONEKEY]: OnekeyEthereumWallet,
     [WALLET.BYBIT]: BybitEthereumWallet,
-    [WALLET.BITGET]: BitgetEthereumWallet
+    [WALLET.BITGET]: BitgetEthereumWallet,
+    [WALLET.TOKENPOCKET]: TokenPocketEthereumWallet
   }
 )
 
