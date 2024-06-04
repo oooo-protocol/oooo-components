@@ -92,7 +92,12 @@ export class EthereumWallet implements EthereumWalletImpl {
         ]
       })
     } catch (e) {
-      if ((e as any).code === 4902) {
+      const err = e as any
+      /**
+       * fix metamask mobile not throw 4902 error when not selected chain.
+       * reference: https://github.com/MetaMask/metamask-mobile/issues/2944#issuecomment-976988719
+       */
+      if (err.code === 4902 || err.code === -32603) {
         await this.addToChain(config)
         await this.switchToChain(config)
       } else {
