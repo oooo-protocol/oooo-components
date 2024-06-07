@@ -49,12 +49,12 @@ export const WALLET_CONFIG_MAP = {
     image: BYBIT_IMAGE
   },
   [WALLET.BITGET]: {
-    name: 'BITGET',
+    name: 'BITGET WALLET',
     value: WALLET.BITGET,
     image: BITGET_IMAGE
   },
   [WALLET.BITGET_BITCOIN]: {
-    name: 'BITGET',
+    name: 'BITGET WALLET',
     value: WALLET.BITGET_BITCOIN,
     image: BITGET_IMAGE
   },
