@@ -221,3 +221,39 @@ export const ARBITRUM_LIVENET = {
   },
   blockExplorerUrls: ['https://arbiscan.io/']
 }
+
+export const ZKLINK_TESTNET = {
+  chainId: '0xc5cc5',
+  chainName: 'zkLink Nova Sepolia Testnet',
+  rpcUrls: ['https://sepolia.rpc.zklink.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.explorer.zklink.io']
+}
+
+export const ZKLINK_LIVENET = {
+  chainId: '0xc5cc4',
+  chainName: 'zkLink Nova Mainnet',
+  rpcUrls: ['https://rpc.zklink.io/', 'https://rpc.zklink.network'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.zklink.io/']
+}
+
+export const ALIENX_TESTNET = {
+  chainId: '0x9c4401',
+  chainName: 'ALIENX Hal Testnet',
+  rpcUrls: ['https://hal-rpc.alienxchain.io/http'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://hal-explorer.alienxchain.io/']
+}
