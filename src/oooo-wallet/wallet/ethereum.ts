@@ -179,15 +179,16 @@ export class EthereumWallet implements EthereumWalletImpl {
       to: parameter.to,
       from: parameter.from,
       value: toBeHex(ethers.parseUnits(parameter.value, config.nativeCurrency.decimals)),
-      data: '0x',
-      chainId: config.chainId
+      data: '0x'
     }
     const gasLimit = await provider.estimateGas(params)
     const request = {
       method: 'eth_sendTransaction',
       params: [{
         ...params,
-        gas: toBeHex(gasLimit)
+        gas: toBeHex(gasLimit),
+        // EIP-155 define, to prevent "replay attacks"
+        chainId: config.chainId
       }]
     }
     console.log('eth_sendTransaction', request)
