@@ -257,3 +257,15 @@ export const ALIENX_TESTNET = {
   },
   blockExplorerUrls: ['https://hal-explorer.alienxchain.io/']
 }
+
+export const ALIENX_LIVENET = {
+  chainId: '0x9c4400',
+  chainName: 'AlienX Chain',
+  rpcUrls: ['https://rpc.alienxchain.io/http'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.alienxchain.io/']
+}
