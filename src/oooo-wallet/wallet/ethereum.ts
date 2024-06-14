@@ -183,6 +183,8 @@ export class EthereumWallet implements EthereumWalletImpl {
     }
     const gasLimit = await provider.estimateGas(params)
     params.gasLimit = gasLimit
+    // EIP-155 define, to prevent "replay attacks"
+    params.chainId = config.chainId
     console.log('eth_sendTransaction', params)
     const { hash } = await signer.sendTransaction(params)
     return hash
