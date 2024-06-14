@@ -116,7 +116,7 @@ export const ROOTSTOCK_TESTNET = {
 
 export const ROOTSTOCK_LIVENET = {
   chainId: '0x1e',
-  chainName: 'RSK Mainnet',
+  chainName: 'Rootstock Mainnet',
   rpcUrls: ['https://public-node.rsk.co'],
   nativeCurrency: {
     name: 'RBTC',

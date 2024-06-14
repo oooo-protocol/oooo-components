@@ -1,5 +1,5 @@
 import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../types'
-import { ethers, formatEther, toBeHex, toUtf8Bytes, hexlify, formatUnits } from 'ethers'
+import { ethers, formatEther, toUtf8Bytes, hexlify, formatUnits, type TransactionRequest } from 'ethers'
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { EVM_ADDRESS_REGEXP } from 'oooo-components/lib/utils'
 
@@ -143,14 +143,14 @@ export class EthereumWallet implements EthereumWalletImpl {
       const decimals = await contract.decimals()
       const transferParam = [
         parameter.to,
-        toBeHex(ethers.parseUnits(parameter.value, decimals))
+        ethers.parseUnits(parameter.value, decimals)
       ]
       const gasLimit = await contract.transfer.estimateGas(...transferParam)
       const { hash } = await contract.transfer(
         ...transferParam,
         {
           gasPrice: parameter.gas,
-          gasLimit: toBeHex(gasLimit)
+          gasLimit
         }
       )
       return hash
@@ -174,25 +174,18 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async transfer (parameter: TransactionParameter, config: ChainConfig) {
     const provider = new ethers.BrowserProvider(this.provider)
-    const params = {
-      gasPrice: toBeHex(Number(parameter.gas)),
+    const signer = await provider.getSigner()
+    const params: TransactionRequest = {
+      gasPrice: parameter.gas,
       to: parameter.to,
       from: parameter.from,
-      value: toBeHex(ethers.parseUnits(parameter.value, config.nativeCurrency.decimals)),
-      data: '0x'
+      value: ethers.parseUnits(parameter.value, config.nativeCurrency.decimals)
     }
     const gasLimit = await provider.estimateGas(params)
-    const request = {
-      method: 'eth_sendTransaction',
-      params: [{
-        ...params,
-        gas: toBeHex(gasLimit),
-        // EIP-155 define, to prevent "replay attacks"
-        chainId: config.chainId
-      }]
-    }
-    console.log('eth_sendTransaction', request)
-    return await this.provider.request(request)
+    params.gasLimit = gasLimit
+    console.log('eth_sendTransaction', params)
+    const { hash } = await signer.sendTransaction(params)
+    return hash
   }
 
   async onAccountChanged (event: onAccountChangedEvent) {
