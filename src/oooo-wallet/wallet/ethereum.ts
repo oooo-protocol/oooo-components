@@ -174,20 +174,24 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async transfer (parameter: TransactionParameter, config: ChainConfig) {
     const provider = new ethers.BrowserProvider(this.provider)
-    const signer = await provider.getSigner()
-    const params: TransactionRequest = {
-      gasPrice: parameter.gas,
-      to: parameter.to,
-      from: parameter.from,
-      value: ethers.parseUnits(parameter.value, config.nativeCurrency.decimals)
+    try {
+      const signer = await provider.getSigner()
+      const params: TransactionRequest = {
+        gasPrice: parameter.gas,
+        to: parameter.to,
+        from: parameter.from,
+        value: ethers.parseUnits(parameter.value, config.nativeCurrency.decimals)
+      }
+      const gasLimit = await provider.estimateGas(params)
+      params.gasLimit = gasLimit
+      // EIP-155 define, to prevent "replay attacks"
+      params.chainId = config.chainId
+      console.log('eth_sendTransaction', params)
+      const { hash } = await signer.sendTransaction(params)
+      return hash
+    } finally {
+      provider.destroy()
     }
-    const gasLimit = await provider.estimateGas(params)
-    params.gasLimit = gasLimit
-    // EIP-155 define, to prevent "replay attacks"
-    params.chainId = config.chainId
-    console.log('eth_sendTransaction', params)
-    const { hash } = await signer.sendTransaction(params)
-    return hash
   }
 
   async onAccountChanged (event: onAccountChangedEvent) {
