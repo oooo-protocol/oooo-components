@@ -61,8 +61,7 @@ export default class OoooWalletWrapper<T extends WalletImpl> {
     /**
      * fix bybit wallet getAccounts return all lowcase address list
      */
-    const toLowcaseAddress = address.toLocaleLowerCase()
-    if (accounts.includes(toLowcaseAddress)) {
+    if (accounts.some(account => account.toLocaleLowerCase() === address.toLocaleLowerCase())) {
       this.instance.onAccountChanged(this.handleAddressChanged.bind(this))
     } else {
       void this.onLogout()
