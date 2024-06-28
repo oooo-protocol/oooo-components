@@ -269,3 +269,51 @@ export const ALIENX_LIVENET = {
   },
   blockExplorerUrls: ['https://explorer.alienxchain.io/']
 }
+
+export const ZKSYNC_TESTNET = {
+  chainId: '0x12c',
+  chainName: 'zkSync Sepolia Testnet',
+  rpcUrls: ['https://sepolia.era.zksync.dev'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.explorer.zksync.io']
+}
+
+export const ZKSYNC_LIVENET = {
+  chainId: '0x144',
+  chainName: 'zkSync Mainnet',
+  rpcUrls: ['https://mainnet.era.zksync.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.zksync.io']
+}
+
+export const SCROLL_TESTNET = {
+  chainId: '0x8274f',
+  chainName: 'Scroll Sepolia Testnet',
+  rpcUrls: ['https://sepolia-rpc.scroll.io/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.scrollscan.com']
+}
+
+export const SCROLL_LIVENET = {
+  chainId: '0x82750',
+  chainName: 'Scroll',
+  rpcUrls: ['https://rpc.scroll.io/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://scrollscan.com/']
+}
