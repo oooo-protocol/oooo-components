@@ -317,3 +317,75 @@ export const SCROLL_LIVENET = {
   },
   blockExplorerUrls: ['https://scrollscan.com/']
 }
+
+export const LINEA_TESTNET = {
+  chainId: '0xe705',
+  chainName: 'Linea Sepolia',
+  rpcUrls: ['https://rpc.sepolia.linea.build'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.lineascan.build']
+}
+
+export const LINEA_LIVENET = {
+  chainId: '0xe708',
+  chainName: 'Linea',
+  rpcUrls: ['https://rpc.linea.build'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://lineascan.build/']
+}
+
+export const BLAST_TESTNET = {
+  chainId: '0xa0c71fd',
+  chainName: 'Blast Sepolia Testnet',
+  rpcUrls: ['https://sepolia.blast.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.blastexplorer.io']
+}
+
+export const BLAST_LIVENET = {
+  chainId: '0x13e31',
+  chainName: 'Blast',
+  rpcUrls: ['https://rpc.blast.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://blastscan.io']
+}
+
+export const BASE_TESTNET = {
+  chainId: '0x14a34',
+  chainName: 'Base Sepolia Testnet',
+  rpcUrls: ['https://sepolia.base.org'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia-explorer.base.org']
+}
+
+export const BASE_LIVENET = {
+  chainId: '0x2105',
+  chainName: 'Base',
+  rpcUrls: ['https://mainnet.base.org'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://base.blockscout.com/']
+}
