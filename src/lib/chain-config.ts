@@ -389,3 +389,51 @@ export const BASE_LIVENET = {
   },
   blockExplorerUrls: ['https://base.blockscout.com/']
 }
+
+export const OP_TESTNET = {
+  chainId: '0xaa37dc',
+  chainName: 'OP Sepolia Testnet',
+  rpcUrls: ['https://sepolia.optimism.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia-optimistic.etherscan.io']
+}
+
+export const OP_LIVENET = {
+  chainId: '0xa',
+  chainName: 'OP Mainnet',
+  rpcUrls: ['https://mainnet.optimism.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://optimistic.etherscan.io']
+}
+
+export const POLYGON_TESTNET = {
+  chainId: '0x13882',
+  chainName: 'Amoy',
+  rpcUrls: ['https://rpc-amoy.polygon.technology'],
+  nativeCurrency: {
+    name: 'MATIC',
+    symbol: 'MATIC',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://amoy.polygonscan.com']
+}
+
+export const POLYGON_LIVENET = {
+  chainId: '0x89',
+  chainName: 'Polygon Mainnet',
+  rpcUrls: ['https://polygon-mainnet.infura.io'],
+  nativeCurrency: {
+    name: 'MATIC',
+    symbol: 'MATIC',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://polygonscan.com/']
+}
