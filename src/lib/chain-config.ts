@@ -429,7 +429,7 @@ export const POLYGON_TESTNET = {
 export const POLYGON_LIVENET = {
   chainId: '0x89',
   chainName: 'Polygon Mainnet',
-  rpcUrls: ['https://polygon-mainnet.infura.io'],
+  rpcUrls: ['https://polygon-rpc.com'],
   nativeCurrency: {
     name: 'MATIC',
     symbol: 'MATIC',
