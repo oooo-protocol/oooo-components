@@ -485,3 +485,27 @@ export const FANTOM_LIVENET = {
   },
   blockExplorerUrls: ['https://ftmscan.com/']
 }
+
+export const ETHEREUM_TESTNET = {
+  chainId: '0xaa36a7',
+  chainName: 'Sepolia',
+  rpcUrls: ['https://sepolia.infura.io/v3/'],
+  nativeCurrency: {
+    name: 'FTM',
+    symbol: 'FTM',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.etherscan.io']
+}
+
+export const ETHEREUM_LIVENET = {
+  chainId: '0x1',
+  chainName: 'Ethereum',
+  rpcUrls: ['https://mainnet.infura.io/v3/'],
+  nativeCurrency: {
+    name: 'FTM',
+    symbol: 'FTM',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://etherscan.io']
+}
