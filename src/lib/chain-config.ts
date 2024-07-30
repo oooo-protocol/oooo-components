@@ -437,3 +437,51 @@ export const POLYGON_LIVENET = {
   },
   blockExplorerUrls: ['https://polygonscan.com/']
 }
+
+export const TAIKO_TESTNET = {
+  chainId: '0x28c61',
+  chainName: 'Taiko Hekla L2',
+  rpcUrls: ['https://rpc.hekla.taiko.xyz'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://hekla.taikoscan.network']
+}
+
+export const TAIKO_LIVENET = {
+  chainId: '0x28c58',
+  chainName: 'Taiko Mainnet',
+  rpcUrls: ['https://rpc.mainnet.taiko.xyz'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://taikoscan.io']
+}
+
+export const FANTOM_TESTNET = {
+  chainId: '0xfa2',
+  chainName: 'Fantom Testnet',
+  rpcUrls: ['https://rpc.testnet.fantom.network/'],
+  nativeCurrency: {
+    name: 'FTM',
+    symbol: 'FTM',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet.ftmscan.com/']
+}
+
+export const FANTOM_LIVENET = {
+  chainId: '0xfa',
+  chainName: 'Fantom Opera',
+  rpcUrls: ['https://rpcapi.fantom.network'],
+  nativeCurrency: {
+    name: 'FTM',
+    symbol: 'FTM',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://ftmscan.com/']
+}
