@@ -491,8 +491,8 @@ export const ETHEREUM_TESTNET = {
   chainName: 'Sepolia',
   rpcUrls: ['https://sepolia.infura.io/v3/'],
   nativeCurrency: {
-    name: 'FTM',
-    symbol: 'FTM',
+    name: 'ETH',
+    symbol: 'ETH',
     decimals: 18
   },
   blockExplorerUrls: ['https://sepolia.etherscan.io']
@@ -503,8 +503,8 @@ export const ETHEREUM_LIVENET = {
   chainName: 'Ethereum',
   rpcUrls: ['https://mainnet.infura.io/v3/'],
   nativeCurrency: {
-    name: 'FTM',
-    symbol: 'FTM',
+    name: 'ETH',
+    symbol: 'ETH',
     decimals: 18
   },
   blockExplorerUrls: ['https://etherscan.io']
