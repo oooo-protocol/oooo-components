@@ -489,7 +489,7 @@ export const FANTOM_LIVENET = {
 export const ETHEREUM_TESTNET = {
   chainId: '0xaa36a7',
   chainName: 'Sepolia',
-  rpcUrls: ['https://sepolia.infura.io/v3/'],
+  rpcUrls: ['https://rpc2.sepolia.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -501,7 +501,7 @@ export const ETHEREUM_TESTNET = {
 export const ETHEREUM_LIVENET = {
   chainId: '0x1',
   chainName: 'Ethereum',
-  rpcUrls: ['https://mainnet.infura.io/v3/'],
+  rpcUrls: ['https://www.ankr.com/rpc/eth/'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
