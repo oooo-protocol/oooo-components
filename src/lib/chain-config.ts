@@ -501,7 +501,7 @@ export const ETHEREUM_TESTNET = {
 export const ETHEREUM_LIVENET = {
   chainId: '0x1',
   chainName: 'Ethereum',
-  rpcUrls: ['https://www.ankr.com/rpc/eth/'],
+  rpcUrls: ['https://ethereum-rpc.publicnode.com'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
