@@ -509,3 +509,51 @@ export const ETHEREUM_LIVENET = {
   },
   blockExplorerUrls: ['https://etherscan.io']
 }
+
+export const XLAYER_TESTNET = {
+  chainId: '0xc3',
+  chainName: 'X Layer testnet',
+  rpcUrls: ['https://testrpc.xlayer.tech'],
+  nativeCurrency: {
+    name: 'OKB',
+    symbol: 'OKB',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://www.okx.com/web3/explorer/xlayer-test']
+}
+
+export const XLAYER_LIVENET = {
+  chainId: '0xc4',
+  chainName: 'X Layer mainnet',
+  rpcUrls: ['https://rpc.xlayer.tech'],
+  nativeCurrency: {
+    name: 'OKB',
+    symbol: 'OKB',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://www.okx.com/web3/explorer/xlayer']
+}
+
+export const ZETACHAIN_TESTNET = {
+  chainId: '0x1b59',
+  chainName: 'ZetaChain Testnet',
+  rpcUrls: ['https://zetachain-athens-evm.blockpi.network/v1/rpc/public'],
+  nativeCurrency: {
+    name: 'ZETA',
+    symbol: 'ZETA',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://athens.explorer.zetachain.com']
+}
+
+export const ZETACHAIN_LIVENET = {
+  chainId: '0x1b58',
+  chainName: 'ZetaChain Mainnet',
+  rpcUrls: ['https://zetachain-evm.blockpi.network/v1/rpc/public'],
+  nativeCurrency: {
+    name: 'ZETA',
+    symbol: 'ZETA',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.zetachain.com']
+}
