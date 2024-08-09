@@ -5,6 +5,7 @@ import UNISAT_IMAGE from './images/unisat.png'
 import BYBIT_IMAGE from './images/bybit.png'
 import BITGET_IMAGE from './images/bitget.png'
 import TOKENPOCKET_IMAGE from './images/tokenpocket.png'
+import COIN98_IMAGE from './images/coin98.png'
 import { WALLET } from './types'
 
 export const WALLET_CONFIG_MAP = {
@@ -62,6 +63,11 @@ export const WALLET_CONFIG_MAP = {
     name: 'TOKEN POCKET',
     value: WALLET.TOKENPOCKET,
     image: TOKENPOCKET_IMAGE
+  },
+  [WALLET.COIN98]: {
+    name: 'COIN98',
+    value: WALLET.COIN98,
+    image: COIN98_IMAGE
   }
 }
 
@@ -83,5 +89,6 @@ export const EVM_WALLETS = [
   WALLET.BITGET,
   WALLET.TOKENPOCKET,
   WALLET.BYBIT,
-  WALLET.ONEKEY
+  WALLET.ONEKEY,
+  WALLET.COIN98
 ]
