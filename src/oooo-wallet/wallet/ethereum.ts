@@ -51,9 +51,22 @@ const ERC20_ABI = [
 export class EthereumWallet implements EthereumWalletImpl {
   readonly type = WALLET_TYPE.ETHEREUM
 
-  get provider () {
+  provider: any
+  accountsChangedEventName = 'accountsChanged'
+  _onAccountsChanged?: (accounts: string[]) => void
+  accountChangedEvents: onAccountChangedEvent[] = []
+
+  async getProvider (): Promise<any> {
     if (window.ethereum == null) throw new NoAlarmException('Please install Wallet plugin')
     return window.ethereum
+  }
+
+  async setup () {
+    /**
+     * Just throw Error in raw BitcoinWallet, because every child class must implement getProvider function
+     */
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+    this.provider = await this.getProvider()
   }
 
   async getAccounts () {
@@ -66,13 +79,18 @@ export class EthereumWallet implements EthereumWalletImpl {
     if (account == null) {
       throw new Error('Unable to access wallet account')
     }
+    if (!this._onAccountsChanged) {
+      this._onAccountsChanged = this.onAccountsChanged.bind(this)
+      this.provider.on(this.accountsChangedEventName, this._onAccountsChanged)
+    }
     return account as string
   }
 
   async disconnect () {
-    void this.provider.removeAllListeners()
     try {
-      // @ts-expect-error some wallet can use `disconnect` to direct logout, such as OKX
+      if (this._onAccountsChanged) {
+        void this.provider.removeListener(this.accountsChangedEventName, this._onAccountsChanged)
+      }
       await this.provider.disconnect?.()
     } catch (e) {}
   }
@@ -136,6 +154,7 @@ export class EthereumWallet implements EthereumWalletImpl {
   }
 
   async tokenTransfer (parameter: TransactionParameter, contractAddress: string) {
+    console.log('tokenTransfer')
     const provider = new ethers.BrowserProvider(this.provider)
     try {
       const signer = await provider.getSigner()
@@ -146,6 +165,7 @@ export class EthereumWallet implements EthereumWalletImpl {
         ethers.parseUnits(parameter.value, decimals)
       ]
       const gasLimit = await contract.transfer.estimateGas(...transferParam)
+      console.log(gasLimit)
       const { hash } = await contract.transfer(
         ...transferParam,
         {
@@ -194,14 +214,19 @@ export class EthereumWallet implements EthereumWalletImpl {
     }
   }
 
-  async onAccountChanged (event: onAccountChangedEvent) {
-    await this.provider.on('accountsChanged', (accounts: string[]) => {
-      const account = accounts[0]
+  onAccountsChanged (accounts: string[]) {
+    const account = accounts[0]
+
+    this.accountChangedEvents.forEach(event => {
       if (EVM_ADDRESS_REGEXP.test(account)) {
         event(account)
       } else {
         event(undefined)
       }
     })
+  }
+
+  addAccountChanged (event: onAccountChangedEvent) {
+    this.accountChangedEvents.push(event)
   }
 }

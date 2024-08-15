@@ -10,7 +10,9 @@ export enum WALLET {
   BITGET,
   BITGET_BITCOIN,
   TOKENPOCKET,
-  COIN98
+  COIN98,
+  WALLETCONNCET,
+  BINANCE
 }
 
 export enum WALLET_TYPE {
@@ -47,11 +49,16 @@ export type onAccountChangedEvent = (account?: string) => void
 export interface WalletImpl {
   type: WALLET_TYPE
   provider: any
+  accountChangedEvents: onAccountChangedEvent[]
+  setup: () => Promise<void>
+  getProvider: () => Promise<any>
   getAccounts: () => Promise<string[]>
   connect: () => Promise<string>
   disconnect: () => Promise<void>
   sign: (message: string, from: string) => Promise<string>
-  onAccountChanged: (event: onAccountChangedEvent) => void
+  accountsChangedEventName: string
+  onAccountsChanged: (...props: any) => void
+  addAccountChanged: (event: onAccountChangedEvent) => void
 }
 
 export interface EthereumWalletImpl extends WalletImpl {

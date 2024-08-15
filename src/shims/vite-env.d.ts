@@ -3,4 +3,5 @@
 
 interface ImportMetaEnv {
   readonly VITE_NETWORK: string
+  readonly VITE_WALLET_CONNECT_PROJECT_ID: string
 }

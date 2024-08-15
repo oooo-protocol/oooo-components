@@ -1,10 +1,9 @@
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { BitcoinWallet } from './bitcoin'
-import { type onAccountChangedEvent } from '../types'
 import { Network, validate } from 'bitcoin-address-validation'
 
 export class BybitBitcoinWallet extends BitcoinWallet {
-  get provider () {
+  async getProvider () {
     if (window.bybitWallet == null) {
       throw new NoAlarmException('Please install Bybit Wallet')
     }
@@ -14,9 +13,10 @@ export class BybitBitcoinWallet extends BitcoinWallet {
     return window.bybitWallet.bitcoin
   }
 
-  async onAccountChanged (event: onAccountChangedEvent) {
-    this.provider.on('accountsChanged', (accounts: string[]) => {
-      const account = accounts[0]
+  onAccountsChanged (accounts: string[]) {
+    const account = accounts[0]
+
+    this.accountChangedEvents.forEach(event => {
       if (validate(account, Network.mainnet)) {
         event(account)
       } else {

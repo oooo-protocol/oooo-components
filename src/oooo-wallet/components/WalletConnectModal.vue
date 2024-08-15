@@ -75,7 +75,7 @@ const onConnectBTCWallet = async (name: WALLET) => {
 
 <template>
   <Dialog v-model:open="open">
-    <DialogContent>
+    <DialogContent @pointer-down-outside.prevent>
       <template #header>
         <DialogHeader>
           <DialogTitle>_ CONNECT WALLET</DialogTitle>

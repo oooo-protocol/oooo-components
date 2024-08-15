@@ -7,6 +7,7 @@ import { BybitEthereumWallet } from '../wallet/bybit-evm'
 import { BitgetEthereumWallet } from '../wallet/bitget-evm'
 import { TokenPocketEthereumWallet } from '../wallet/tokenpocket-evm'
 import { Coin98EthereumWallet } from '../wallet/coin98-evm'
+import { WalletConnectWallet } from '../wallet/wallet-connect'
 
 const wrapper = new Wrapper<EthereumWalletImpl>(
   'oooo-evm-wallet',
@@ -17,7 +18,9 @@ const wrapper = new Wrapper<EthereumWalletImpl>(
     [WALLET.BYBIT]: BybitEthereumWallet,
     [WALLET.BITGET]: BitgetEthereumWallet,
     [WALLET.TOKENPOCKET]: TokenPocketEthereumWallet,
-    [WALLET.COIN98]: Coin98EthereumWallet
+    [WALLET.COIN98]: Coin98EthereumWallet,
+    [WALLET.WALLETCONNCET]: WalletConnectWallet,
+    [WALLET.BINANCE]: WalletConnectWallet
   }
 )
 

@@ -4,8 +4,22 @@ import { Decimal } from 'decimal.js-light'
 export class BitcoinWallet implements BitcoinWalletImpl {
   readonly type = WALLET_TYPE.BITCOIN
 
-  get provider (): any {
+  provider: any
+  accountsChangedEventName = 'accountsChanged'
+  _onAccountsChanged?: any
+
+  accountChangedEvents: onAccountChangedEvent[] = []
+
+  async getProvider () {
     throw new Error('Provider not config, please check it')
+  }
+
+  async setup () {
+    /**
+     * Just throw Error in raw BitcoinWallet, because every child class must implement getProvider function
+     */
+    // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+    this.provider = await this.getProvider()
   }
 
   async getAccounts () {
@@ -23,12 +37,19 @@ export class BitcoinWallet implements BitcoinWalletImpl {
     if (account == null) {
       throw new Error('Unable to access wallet account')
     }
+    if (this._onAccountsChanged == null) {
+      this._onAccountsChanged = this.onAccountsChanged.bind(this)
+      this.provider.on(this.accountsChangedEventName, this._onAccountsChanged)
+    }
+
     return account as string
   }
 
   async disconnect () {
-    void this.provider.removeAllListeners()
     try {
+      if (this._onAccountsChanged != null) {
+        void this.provider.removeListener(this.accountsChangedEventName, this._onAccountsChanged)
+      }
       await this.provider.disconnect()
     } catch (e) {}
   }
@@ -59,13 +80,15 @@ export class BitcoinWallet implements BitcoinWalletImpl {
     )
   }
 
-  async onAccountChanged (event: onAccountChangedEvent) {
-    this.provider.on('accountChanged', (account?: {
-      address: string
-      publicKey: string
-      compressedPublicKey: string
-    }) => {
-      event(account?.address)
+  onAccountsChanged (accounts: string[]) {
+    const account = accounts[0]
+
+    this.accountChangedEvents.forEach(event => {
+      event(account)
     })
+  }
+
+  addAccountChanged (event: onAccountChangedEvent) {
+    this.accountChangedEvents.push(event)
   }
 }

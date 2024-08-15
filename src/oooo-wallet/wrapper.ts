@@ -34,7 +34,6 @@ export default class OoooWalletWrapper<T extends WalletImpl> {
     const result = this.#storage.get<WalletStorage>()
     if (result != null) {
       const { name, address } = result
-      this.initInstance(name)
       void this.initWallet(name, address)
     }
 
@@ -47,24 +46,31 @@ export default class OoooWalletWrapper<T extends WalletImpl> {
     })
   }
 
-  initInstance (name: WALLET) {
+  async initInstance (name: WALLET) {
     const Wallet = this.#wallets[name]
     if (Wallet == null) throw new Error(`Wallet ${name} is not supported.`)
     this.#instance = new Wallet() as T
+    await this.instance.setup()
     return this.#instance
   }
 
   async initWallet (name: WALLET, address: string) {
-    this.name.value = name
-    this.address.value = address
-    const accounts = await this.instance.getAccounts()
-    /**
-     * fix bybit wallet getAccounts return all lowcase address list
-     */
-    if (accounts.some(account => account.toLocaleLowerCase() === address.toLocaleLowerCase())) {
-      this.instance.onAccountChanged(this.handleAddressChanged.bind(this))
-    } else {
+    try {
+      await this.initInstance(name)
+      this.name.value = name
+      this.address.value = address
+      const accounts = await this.instance.getAccounts()
+      /**
+       * fix bybit wallet getAccounts return all lowcase address list
+       */
+      if (accounts.some(account => account.toLocaleLowerCase() === address.toLocaleLowerCase())) {
+        this.instance.addAccountChanged(this.handleAddressChanged.bind(this))
+      } else {
+        throw new Error('[oooo-wallet]: The authorized account does not match the current account')
+      }
+    } catch (e) {
       void this.onLogout()
+      throw e
     }
   }
 
@@ -72,7 +78,7 @@ export default class OoooWalletWrapper<T extends WalletImpl> {
     // Prevent some events not be unmount error
     await this.onLogout()
 
-    this.initInstance(name)
+    await this.initInstance(name)
     const address = await this.instance.connect()
     await this.initWallet(name, address)
   }

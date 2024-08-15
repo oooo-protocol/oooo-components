@@ -4,7 +4,7 @@ import { ethers, type TransactionRequest } from 'ethers'
 import { type TransactionParameter, type ChainConfig } from '../types'
 
 export class BybitEthereumWallet extends EthereumWallet {
-  get provider () {
+  async getProvider () {
     if (window.bybitWallet == null) {
       throw new NoAlarmException('Please install Bybit Wallet')
     }
