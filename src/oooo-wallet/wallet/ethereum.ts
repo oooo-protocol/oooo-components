@@ -154,7 +154,6 @@ export class EthereumWallet implements EthereumWalletImpl {
   }
 
   async tokenTransfer (parameter: TransactionParameter, contractAddress: string) {
-    console.log('tokenTransfer')
     const provider = new ethers.BrowserProvider(this.provider)
     try {
       const signer = await provider.getSigner()
@@ -165,7 +164,6 @@ export class EthereumWallet implements EthereumWalletImpl {
         ethers.parseUnits(parameter.value, decimals)
       ]
       const gasLimit = await contract.transfer.estimateGas(...transferParam)
-      console.log(gasLimit)
       const { hash } = await contract.transfer(
         ...transferParam,
         {
