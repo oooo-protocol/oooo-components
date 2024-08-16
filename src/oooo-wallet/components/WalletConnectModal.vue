@@ -12,7 +12,7 @@ import { useEVMWallet } from '../ethereum/use-evm-wallet'
 
 import { NETWORK, WALLET_TYPE, type WALLET } from '../types'
 import { BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, WALLET_CONFIG_MAP } from '../config'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 defineOptions({
   name: 'WalletConnectModal'
@@ -24,6 +24,7 @@ export interface WalletConnectModalProps {
 }
 
 const open = defineModel<boolean>()
+const openingWalletName = ref<WALLET>()
 
 const props = defineProps<WalletConnectModalProps>()
 const { onConnect: onBTCConnect, getWalletInstance: getBTCWalletInstance } = useBTCWallet()
@@ -48,12 +49,15 @@ const config = computed(() => {
 
 const onConnectEVMWallet = async (name: WALLET) => {
   try {
+    openingWalletName.value = name
     await onEVMConnect(name)
     open.value = false
   } catch (e) {
     toast({
       description: (e as Error).message
     })
+  } finally {
+    openingWalletName.value = undefined
   }
 }
 
@@ -91,6 +95,7 @@ const onConnectBTCWallet = async (name: WALLET) => {
           :key="wallet"
           variant="outline"
           @click="config.onClick(wallet)"
+          :loading="openingWalletName === wallet"
         >
           <img
             class="w-[24px] h-[24px]"
