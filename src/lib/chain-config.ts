@@ -557,3 +557,51 @@ export const ZETACHAIN_LIVENET = {
   },
   blockExplorerUrls: ['https://explorer.zetachain.com']
 }
+
+export const MODE_TESTNET = {
+  chainId: '0x397',
+  chainName: 'Mode Testnet',
+  rpcUrls: ['https://sepolia.mode.network'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.explorer.mode.network/']
+}
+
+export const MODE_LIVENET = {
+  chainId: '0x868b',
+  chainName: 'Mode',
+  rpcUrls: ['https://mainnet.mode.network/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.mode.network/']
+}
+
+export const CORE_TESTNET = {
+  chainId: '0x45b',
+  chainName: 'Core Blockchain Testnet',
+  rpcUrls: ['https://rpc.test.btcs.network'],
+  nativeCurrency: {
+    name: 'tCORE',
+    symbol: 'tCORE',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://scan.test.btcs.network']
+}
+
+export const CORE_LIVENET = {
+  chainId: '0x45c',
+  chainName: 'Core Blockchain Mainnet',
+  rpcUrls: ['https://rpc.coredao.org/'],
+  nativeCurrency: {
+    name: 'CORE',
+    symbol: 'CORE',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://scan.coredao.org']
+}
