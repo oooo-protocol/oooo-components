@@ -16,44 +16,41 @@ const onMenuClose = () => {
 
 <template>
   <div
-    class="shrink-0 flex gap-[20px] cursor-pointer"
+    class="flex gap-[20px] cursor-pointer"
     @click="showMenubar = true"
   >
     <Icon
       class="text-[26px]"
       name="menu"
     />
-    <p class="text-[#bce4cd] hidden md:block select-none -tracking-tighter">
-      MENU
-    </p>
-  </div>
-  <Teleport
-    to="body"
-    v-if="showMenubar"
-  >
-    <div class="app-nav">
-      <div class="app-nav__header">
-        <span
-          class="app-nav__close"
-          @click="showMenubar = false"
-        >
-          CLOSE
-        </span>
+    <Teleport
+      to="body"
+      v-if="showMenubar"
+    >
+      <div class="app-nav">
+        <div class="app-nav__header">
+          <span
+            class="app-nav__close"
+            @click="showMenubar = false"
+          >
+            CLOSE
+          </span>
+        </div>
+        <ul class="app-nav__content">
+          <AppNavItem
+            v-for="menu of menus"
+            :menu="menu"
+            :key="menu.name"
+            @close="onMenuClose()"
+          />
+        </ul>
       </div>
-      <ul class="app-nav__content">
-        <AppNavItem
-          v-for="menu of menus"
-          :menu="menu"
-          :key="menu.name"
-          @close="onMenuClose()"
-        />
-      </ul>
-    </div>
-    <div
-      class="app-nav__mask"
-      @click="showMenubar = false"
-    />
-  </Teleport>
+      <div
+        class="app-nav__mask"
+        @click="showMenubar = false"
+      />
+    </Teleport>
+  </div>
 </template>
 
 <style lang="scss">

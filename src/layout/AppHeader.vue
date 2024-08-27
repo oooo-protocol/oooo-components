@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="app-header relative shrink-0 flex items-center md:gap-[40px] px-[24px] md:px-[48px] xl:px-[120px] h-[80px]">
+  <div class="app-header absolute top-0 left-0 right-0 flex items-center gap-[20px] md:gap-[40px] px-[24px] md:px-[48px] xl:px-[120px] h-[80px]">
     <slot />
   </div>
 </template>

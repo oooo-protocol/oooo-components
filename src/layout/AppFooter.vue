@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Icon from 'oooo-components/ui/Icon.vue'
 import { useQuery } from '@tanstack/vue-query'
 
 defineProps<{
@@ -45,10 +46,10 @@ const { data: price } = useQuery({
         class="block w-max md:mb-[24px] xl:mb-[70px]"
         href="https://oooo.money"
       >
-        <img
-          class="md:w-[48px] xl:w-[72px]"
-          src="@/assets/images/logo/oooo.png"
-        >
+        <Icon
+          name="OOOOlogo"
+          class="md:text-[48px] xl:text-[72px]"
+        />
       </a>
       <p>Bitcoin BTC</p>
       <div
