@@ -67,6 +67,11 @@ export class EthereumWallet implements EthereumWalletImpl {
      */
     // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     this.provider = await this.getProvider()
+
+    if (!this._onAccountsChanged) {
+      this._onAccountsChanged = this.onAccountsChanged.bind(this)
+      this.provider.on(this.accountsChangedEventName, this._onAccountsChanged)
+    }
   }
 
   async getAccounts () {
