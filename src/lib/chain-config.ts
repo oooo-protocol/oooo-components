@@ -617,3 +617,75 @@ export const CORE_LIVENET = {
   },
   blockExplorerUrls: ['https://scan.coredao.org']
 }
+
+export const MANTA_TESTNET = {
+  chainId: '0x34816e',
+  chainName: 'Manta Pacific Sepolia Testnet',
+  rpcUrls: ['https://pacific-rpc.sepolia-testnet.manta.network/http'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://pacific-explorer.sepolia-testnet.manta.network']
+}
+
+export const MANTA_LIVENET = {
+  chainId: '0xa9',
+  chainName: 'Manta Pacific Mainnet',
+  rpcUrls: ['https://pacific-rpc.manta.network/http'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://pacific-explorer.manta.network/']
+}
+
+export const ZORA_TESTNET = {
+  chainId: '0x3b9ac9ff',
+  chainName: 'Zora Sepolia Testnet',
+  rpcUrls: ['https://sepolia.rpc.zora.energy'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.explorer.zora.energy/']
+}
+
+export const ZORA_LIVENET = {
+  chainId: '0x76adf1',
+  chainName: 'Zora',
+  rpcUrls: ['https://rpc.zora.energy/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.zora.energy/']
+}
+
+export const OPBNB_TESTNET = {
+  chainId: '0x15eb',
+  chainName: 'opBNB Testnet',
+  rpcUrls: ['https://opbnb-testnet-rpc.bnbchain.org'],
+  nativeCurrency: {
+    name: 'tBNB',
+    symbol: 'tBNB',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet.opbnbscan.com']
+}
+
+export const OPBNB_LIVENET = {
+  chainId: '0xcc',
+  chainName: 'opBNB Mainnet',
+  rpcUrls: ['https://opbnb-mainnet-rpc.bnbchain.org'],
+  nativeCurrency: {
+    name: 'BNB',
+    symbol: 'BNB',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://opbnbscan.com']
+}
