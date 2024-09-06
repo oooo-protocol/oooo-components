@@ -17,7 +17,8 @@ export enum WALLET {
 
 export enum WALLET_TYPE {
   BITCOIN = 'bitcoin',
-  ETHEREUM = 'ethereum'
+  ETHEREUM = 'ethereum',
+  FRACTAL = 'fractal bitcoin'
 }
 
 export enum NETWORK {
@@ -76,6 +77,16 @@ export interface BitcoinWalletImpl extends WalletImpl {
   getNativeBalance: () => Promise<string>
   transfer: (parameter: TransactionParameter) => Promise<string>
   switchNetwork: (network: NETWORK) => Promise<void>
+  switchChain?: (chainName: string) => Promise<void>
+}
+
+export interface FractalWalletImpl extends WalletImpl {
+  type: WALLET_TYPE.FRACTAL
+  getPublicKey: () => Promise<string>
+  getNativeBalance: () => Promise<string>
+  transfer: (parameter: TransactionParameter) => Promise<string>
+  switchNetwork: (network: NETWORK) => Promise<void>
+  switchChain: (chainName: string) => Promise<void>
 }
 
 export type WalletConstructor = new () => WalletImpl

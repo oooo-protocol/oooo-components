@@ -108,3 +108,7 @@ export const EVM_WALLETS = [
   WALLET.WALLETCONNCET,
   WALLET.COIN98
 ]
+
+export const FRACTAL_WALLET = [
+  WALLET.UNISAT
+]

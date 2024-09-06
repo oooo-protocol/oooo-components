@@ -2,6 +2,8 @@ export * from './bitcoin/use-btc-wallet'
 
 export * from './ethereum/use-evm-wallet'
 
+export * from './fractal/use-fractal-wallet'
+
 export * from './config'
 
 export * from './types'

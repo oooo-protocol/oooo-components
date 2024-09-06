@@ -71,11 +71,23 @@ export const B2_LIVENET = {
 }
 
 export const BTC_TESTNET = {
+  chainName: 'BITCOIN_TESTNET',
   blockExplorerUrls: ['https://mempool.space/testnet']
 }
 
 export const BTC_LIVENET = {
+  chainName: 'BITCOIN_MAINNET',
   blockExplorerUrls: ['https://mempool.space']
+}
+
+export const FRACTAL_TESTNET = {
+  chainName: 'FRACTAL_BITCOIN_TESTNET',
+  blockExplorerUrls: ['https://mempool-testnet.fractalbitcoin.io']
+}
+
+export const FRACTAL_LIVENET = {
+  chainName: 'FRACTAL_BITCOIN_MAINNET',
+  blockExplorerUrls: ['https://mempool-testnet.fractalbitcoin.io']
 }
 
 export const MERLIN_TESTNET = {

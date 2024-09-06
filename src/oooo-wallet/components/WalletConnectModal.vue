@@ -13,6 +13,7 @@ import { useEVMWallet } from '../ethereum/use-evm-wallet'
 import { NETWORK, WALLET_TYPE, type WALLET } from '../types'
 import { BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, WALLET_CONFIG_MAP } from '../config'
 import { computed, ref } from 'vue'
+import { useFractalWallet } from '../fractal/use-fractal-wallet'
 
 defineOptions({
   name: 'WalletConnectModal'
@@ -29,6 +30,7 @@ const openingWalletName = ref<WALLET>()
 const props = defineProps<WalletConnectModalProps>()
 const { onConnect: onBTCConnect, getWalletInstance: getBTCWalletInstance } = useBTCWallet()
 const { onConnect: onEVMConnect } = useEVMWallet()
+const { onConnect: onFractalConnect, getWalletInstance: getFractalWalletInstance } = useFractalWallet()
 const { toast } = useToast()
 
 const config = computed(() => {
@@ -37,6 +39,12 @@ const config = computed(() => {
       title: 'BITCOIN WALLET',
       list: props.network === NETWORK.LIVENET ? BTC_LIVENET_WALLET : BTC_TESTNET_WALLETS,
       onClick: onConnectBTCWallet
+    }
+  } else if (props.type === WALLET_TYPE.FRACTAL) {
+    return {
+      title: 'FRACTAL BITCOIN WALLET',
+      list: props.network === NETWORK.LIVENET ? BTC_LIVENET_WALLET : BTC_TESTNET_WALLETS,
+      onClick: onConnectFractalWallet
     }
   } else {
     return {
@@ -67,6 +75,21 @@ const onConnectBTCWallet = async (name: WALLET) => {
     const instance = getBTCWalletInstance()
     if (props.network != null) {
       await instance.switchNetwork(props.network)
+    }
+    open.value = false
+  } catch (e) {
+    toast({
+      description: (e as Error).message
+    })
+  }
+}
+
+const onConnectFractalWallet = async (name: WALLET) => {
+  try {
+    await onFractalConnect(name)
+    const instance = getFractalWalletInstance()
+    if (props.network != null) {
+      await instance.switchChain(props.network === NETWORK.LIVENET ? 'FRACTAL_BITCOIN_MAINNET' : 'FRACTAL_BITCOIN_TESTNET')
     }
     open.value = false
   } catch (e) {
