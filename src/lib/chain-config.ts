@@ -201,7 +201,7 @@ export const BSC_TESTNET = {
 export const BSC_LIVENET = {
   chainId: '0x38',
   chainName: 'BSC Mainnet',
-  rpcUrls: ['https://bsc-dataseed1.binance.org/', 'https://bsc-dataseed1.defibit.io/'],
+  rpcUrls: ['https://rpc.ankr.com/bsc', 'https://bsc-dataseed1.defibit.io/'],
   nativeCurrency: {
     name: 'BNB',
     symbol: 'BNB',
