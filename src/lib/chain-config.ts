@@ -689,3 +689,27 @@ export const OPBNB_LIVENET = {
   },
   blockExplorerUrls: ['https://opbnbscan.com']
 }
+
+export const SONEIUM_TESTNET = {
+  chainId: '0x79a',
+  chainName: 'Minato',
+  rpcUrls: ['https://rpc.minato.soneium.org/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: [' https://explorer-testnet.soneium.org']
+}
+
+export const STORY_TESTNET = {
+  chainId: '0x5e9',
+  chainName: 'Story Public Testnet',
+  rpcUrls: ['https://testnet.storyrpc.io/'],
+  nativeCurrency: {
+    name: 'IP',
+    symbol: 'IP',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet.storyscan.xyz/']
+}
