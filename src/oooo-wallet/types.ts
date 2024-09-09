@@ -64,8 +64,8 @@ export interface WalletImpl {
 
 export interface EthereumWalletImpl extends WalletImpl {
   type: WALLET_TYPE.ETHEREUM
-  getNativeBalance: (address: string, rpc: string) => Promise<string>
-  getTokenBalance: (address: string, rpc: string, contractAddress: string) => Promise<string>
+  getNativeBalance: (address: string, config: ChainConfig) => Promise<string>
+  getTokenBalance: (address: string, config: ChainConfig, contractAddress: string) => Promise<string>
   transfer: (parameter: TransactionParameter, chain: ChainConfig) => Promise<string>
   tokenTransfer: (parameter: TransactionParameter, contractAddress: string) => Promise<string>
   switchToChain: (config: ChainConfig) => Promise<void>

@@ -189,7 +189,7 @@ export const BOB_LIVENET = {
 export const BSC_TESTNET = {
   chainId: '0x61',
   chainName: 'BSC Testnet',
-  rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545/', 'http://data-seed-prebsc-1-s2.binance.org:8545/'],
+  rpcUrls: ['https://bsc-testnet-dataseed.bnbchain.org', 'https://bsc-testnet.bnbchain.org', 'https://bsc-prebsc-dataseed.bnbchain.org'],
   nativeCurrency: {
     name: 'tBNB',
     symbol: 'tBNB',

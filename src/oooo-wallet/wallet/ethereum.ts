@@ -1,7 +1,7 @@
 import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../types'
 import { ethers, formatEther, toUtf8Bytes, hexlify, formatUnits, type TransactionRequest } from 'ethers'
 import { NoAlarmException } from 'oooo-components/lib/exception'
-import { EVM_ADDRESS_REGEXP } from 'oooo-components/lib/utils'
+import { EVM_ADDRESS_REGEXP, getRpcProvider } from 'oooo-components/lib/utils'
 
 const ERC20_ABI = [
   {
@@ -136,8 +136,9 @@ export class EthereumWallet implements EthereumWalletImpl {
     })
   }
 
-  async getNativeBalance (address: string, rpc: string) {
-    const provider = new ethers.JsonRpcProvider(rpc)
+  async getNativeBalance (address: string, config: ChainConfig) {
+    const rpcs = config.rpcUrls
+    const provider = await getRpcProvider(rpcs)
     try {
       const balance = await provider.getBalance(address)
       return formatEther(balance)
@@ -146,8 +147,9 @@ export class EthereumWallet implements EthereumWalletImpl {
     }
   }
 
-  async getTokenBalance (address: string, rpc: string, contractAddress: string) {
-    const provider = new ethers.JsonRpcProvider(rpc)
+  async getTokenBalance (address: string, config: ChainConfig, contractAddress: string) {
+    const rpcs = config.rpcUrls
+    const provider = await getRpcProvider(rpcs)
     try {
       const contract = new ethers.Contract(contractAddress, ERC20_ABI, provider)
       const balance = await contract.balanceOf(address)

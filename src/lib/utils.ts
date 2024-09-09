@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import type { Updater } from '@tanstack/vue-table'
 import { type Ref } from 'vue'
+import { ethers } from 'ethers'
 
 export function cn (...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -34,3 +35,23 @@ export function formatHashWithEllipsis (hash: string, front = 6, tail = 4) {
 }
 
 export const EVM_ADDRESS_REGEXP = /^(0x)[0-9A-Fa-f]{40}$/
+
+/**
+ * get available Rpc from the Rpc list
+ */
+export async function getRpcProvider (rpcs: string[]) {
+  if (rpcs.length === 0) throw new Error('Rpc list is empty.')
+
+  let index = 0
+
+  while (true) {
+    try {
+      const provider = new ethers.JsonRpcProvider(rpcs[index])
+      await provider.getNetwork()
+      return provider
+    } catch (e) {
+      if (index === rpcs.length - 1) throw e
+      index += 1
+    }
+  }
+}
