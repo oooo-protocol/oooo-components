@@ -13,7 +13,7 @@ export const BEVM_TESTNET = {
 export const BEVM_LIVENET = {
   chainId: '0x2ced',
   chainName: 'BEVM',
-  rpcUrls: ['https://rpc-mainnet-1.bevm.io/'],
+  rpcUrls: ['https://rpc-mainnet-1.bevm.io/', 'https://rpc-mainnet-2.bevm.io/'],
   nativeCurrency: {
     name: 'BTC',
     symbol: 'BTC',
@@ -37,7 +37,7 @@ export const BEVM_CANARY_TESTNET = {
 export const BEVM_CANARY_LIVENET = {
   chainId: '0x5dd',
   chainName: 'BEVM Canary',
-  rpcUrls: ['https://rpc-canary-1.bevm.io/'],
+  rpcUrls: ['https://rpc-canary-1.bevm.io/', 'https://rpc-canary-2.bevm.io/'],
   nativeCurrency: {
     name: 'BTC',
     symbol: 'BTC',
@@ -105,7 +105,7 @@ export const MERLIN_TESTNET = {
 export const MERLIN_LIVENET = {
   chainId: '0x1068',
   chainName: 'Merlin Mainnet',
-  rpcUrls: ['https://rpc.merlinchain.io'],
+  rpcUrls: ['https://rpc.merlinchain.io', 'https://merlin.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'BTC',
     symbol: 'BTC',
@@ -117,7 +117,7 @@ export const MERLIN_LIVENET = {
 export const ROOTSTOCK_TESTNET = {
   chainId: '0x1f',
   chainName: 'RSK Testnet',
-  rpcUrls: ['https://public-node.testnet.rsk.co'],
+  rpcUrls: ['https://public-node.testnet.rsk.co', 'https://mycrypto.testnet.rsk.co'],
   nativeCurrency: {
     name: 'tRBTC',
     symbol: 'tRBTC',
@@ -129,7 +129,7 @@ export const ROOTSTOCK_TESTNET = {
 export const ROOTSTOCK_LIVENET = {
   chainId: '0x1e',
   chainName: 'Rootstock Mainnet',
-  rpcUrls: ['https://public-node.rsk.co'],
+  rpcUrls: ['https://public-node.rsk.co', 'https://rootstock.drpc.org', 'https://mycrypto.rsk.co'],
   nativeCurrency: {
     name: 'RBTC',
     symbol: 'RBTC',
@@ -141,7 +141,7 @@ export const ROOTSTOCK_LIVENET = {
 export const BITLAYER_TESTNET = {
   chainId: '0x3106a',
   chainName: 'Bitlayer Testnet',
-  rpcUrls: ['https://testnet-rpc.bitlayer.org'],
+  rpcUrls: ['https://testnet-rpc.bitlayer.org', 'https://testnet-rpc.bitlayer-rpc.com', 'https://rpc.ankr.com/bitlayer_testnet'],
   nativeCurrency: {
     name: 'BTC',
     symbol: 'BTC',
@@ -177,7 +177,7 @@ export const BOB_TESTNET = {
 export const BOB_LIVENET = {
   chainId: '0xed88',
   chainName: 'BOB Mainnet',
-  rpcUrls: ['https://rpc.gobob.xyz/'],
+  rpcUrls: ['https://rpc.gobob.xyz/', 'https://bob.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -201,7 +201,7 @@ export const BSC_TESTNET = {
 export const BSC_LIVENET = {
   chainId: '0x38',
   chainName: 'BSC Mainnet',
-  rpcUrls: ['https://rpc.ankr.com/bsc', 'https://bsc-dataseed1.defibit.io/'],
+  rpcUrls: ['https://rpc.ankr.com/bsc', 'https://bsc-dataseed1.bnbchain.org', 'https://bsc-dataseed2.bnbchain.org', 'https://binance.llamarpc.com'],
   nativeCurrency: {
     name: 'BNB',
     symbol: 'BNB',
@@ -213,7 +213,7 @@ export const BSC_LIVENET = {
 export const ARBITRUM_TESTNET = {
   chainId: '0x66eee',
   chainName: 'Arbitrum Sepolia',
-  rpcUrls: ['https://sepolia-rollup.arbitrum.io/rpc'],
+  rpcUrls: ['https://sepolia-rollup.arbitrum.io/rpc', 'https://arbitrum-sepolia.blockpi.network/v1/rpc/public '],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -225,7 +225,7 @@ export const ARBITRUM_TESTNET = {
 export const ARBITRUM_LIVENET = {
   chainId: '0xa4b1',
   chainName: 'Arbitrum One',
-  rpcUrls: ['https://arb1.arbitrum.io/rpc'],
+  rpcUrls: ['https://arb1.arbitrum.io/rpc', 'https://rpc.ankr.com/arbitrum', 'https://arbitrum.llamarpc.com'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -261,7 +261,7 @@ export const ZKLINK_LIVENET = {
 export const ALIENX_TESTNET = {
   chainId: '0x9c4401',
   chainName: 'ALIENX Hal Testnet',
-  rpcUrls: ['https://hal-rpc.alienxchain.io/http'],
+  rpcUrls: ['https://hal-rpc.alienxchain.io/http', 'https://hal.rpc.caldera.xyz/http'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -285,7 +285,7 @@ export const ALIENX_LIVENET = {
 export const ZKSYNC_TESTNET = {
   chainId: '0x12c',
   chainName: 'zkSync Sepolia Testnet',
-  rpcUrls: ['https://sepolia.era.zksync.dev'],
+  rpcUrls: ['https://sepolia.era.zksync.dev', 'https://sepolia.era.zksync.dev', 'https://zksync-sepolia.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -297,7 +297,7 @@ export const ZKSYNC_TESTNET = {
 export const ZKSYNC_LIVENET = {
   chainId: '0x144',
   chainName: 'zkSync Mainnet',
-  rpcUrls: ['https://mainnet.era.zksync.io'],
+  rpcUrls: ['https://mainnet.era.zksync.io', 'https://zksync.drpc.org', 'https://zksync.meowrpc.com'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -309,7 +309,7 @@ export const ZKSYNC_LIVENET = {
 export const SCROLL_TESTNET = {
   chainId: '0x8274f',
   chainName: 'Scroll Sepolia Testnet',
-  rpcUrls: ['https://sepolia-rpc.scroll.io/'],
+  rpcUrls: ['https://sepolia-rpc.scroll.io/', 'https://scroll-sepolia.blockpi.network/v1/rpc/public', 'https://rpc.ankr.com/scroll_sepolia_testnet'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -321,7 +321,7 @@ export const SCROLL_TESTNET = {
 export const SCROLL_LIVENET = {
   chainId: '0x82750',
   chainName: 'Scroll',
-  rpcUrls: ['https://rpc.scroll.io/'],
+  rpcUrls: ['https://rpc.scroll.io/', 'https://rpc.ankr.com/scroll', 'https://1rpc.io/scroll'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -333,7 +333,7 @@ export const SCROLL_LIVENET = {
 export const LINEA_TESTNET = {
   chainId: '0xe705',
   chainName: 'Linea Sepolia',
-  rpcUrls: ['https://rpc.sepolia.linea.build'],
+  rpcUrls: ['https://rpc.sepolia.linea.build', 'https://linea-sepolia.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -345,7 +345,7 @@ export const LINEA_TESTNET = {
 export const LINEA_LIVENET = {
   chainId: '0xe708',
   chainName: 'Linea',
-  rpcUrls: ['https://rpc.linea.build'],
+  rpcUrls: ['https://rpc.linea.build', 'https://1rpc.io/linea', 'https://linea.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -357,7 +357,7 @@ export const LINEA_LIVENET = {
 export const BLAST_TESTNET = {
   chainId: '0xa0c71fd',
   chainName: 'Blast Sepolia Testnet',
-  rpcUrls: ['https://sepolia.blast.io'],
+  rpcUrls: ['https://sepolia.blast.io', 'https://blast-sepolia.drpc.org', 'https://blast-sepolia.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -369,7 +369,7 @@ export const BLAST_TESTNET = {
 export const BLAST_LIVENET = {
   chainId: '0x13e31',
   chainName: 'Blast',
-  rpcUrls: ['https://rpc.blast.io'],
+  rpcUrls: ['https://rpc.blast.io', 'https://rpc.ankr.com/blast', 'https://blast.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -381,7 +381,7 @@ export const BLAST_LIVENET = {
 export const BASE_TESTNET = {
   chainId: '0x14a34',
   chainName: 'Base Sepolia Testnet',
-  rpcUrls: ['https://sepolia.base.org'],
+  rpcUrls: ['https://sepolia.base.org', 'https://base-sepolia.blockpi.network/v1/rpc/public'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -393,7 +393,7 @@ export const BASE_TESTNET = {
 export const BASE_LIVENET = {
   chainId: '0x2105',
   chainName: 'Base',
-  rpcUrls: ['https://mainnet.base.org'],
+  rpcUrls: ['https://mainnet.base.org', 'https://base.llamarpc.com', 'https://1rpc.io/base'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -405,7 +405,7 @@ export const BASE_LIVENET = {
 export const OP_TESTNET = {
   chainId: '0xaa37dc',
   chainName: 'OP Sepolia Testnet',
-  rpcUrls: ['https://sepolia.optimism.io'],
+  rpcUrls: ['https://sepolia.optimism.io', 'https://optimism-sepolia.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -417,7 +417,7 @@ export const OP_TESTNET = {
 export const OP_LIVENET = {
   chainId: '0xa',
   chainName: 'OP Mainnet',
-  rpcUrls: ['https://mainnet.optimism.io'],
+  rpcUrls: ['https://mainnet.optimism.io', 'https://rpc.ankr.com/optimism', 'https://1rpc.io/op'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -429,7 +429,7 @@ export const OP_LIVENET = {
 export const POLYGON_TESTNET = {
   chainId: '0x13882',
   chainName: 'Amoy',
-  rpcUrls: ['https://rpc-amoy.polygon.technology'],
+  rpcUrls: ['https://rpc-amoy.polygon.technology', 'https://rpc.ankr.com/polygon_amoy', 'https://polygon-amoy.drpc.org'],
   nativeCurrency: {
     name: 'MATIC',
     symbol: 'MATIC',
@@ -441,7 +441,7 @@ export const POLYGON_TESTNET = {
 export const POLYGON_LIVENET = {
   chainId: '0x89',
   chainName: 'Polygon Mainnet',
-  rpcUrls: ['https://polygon-rpc.com'],
+  rpcUrls: ['https://polygon-rpc.com', 'https://1rpc.io/matic', 'https://rpc.ankr.com/polygon'],
   nativeCurrency: {
     name: 'MATIC',
     symbol: 'MATIC',
@@ -453,7 +453,7 @@ export const POLYGON_LIVENET = {
 export const TAIKO_TESTNET = {
   chainId: '0x28c61',
   chainName: 'Taiko Hekla L2',
-  rpcUrls: ['https://rpc.hekla.taiko.xyz'],
+  rpcUrls: ['https://rpc.hekla.taiko.xyz', 'https://rpc.ankr.com/taiko_hekla', 'https://taiko-hekla.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -465,7 +465,7 @@ export const TAIKO_TESTNET = {
 export const TAIKO_LIVENET = {
   chainId: '0x28c58',
   chainName: 'Taiko Mainnet',
-  rpcUrls: ['https://rpc.mainnet.taiko.xyz'],
+  rpcUrls: ['https://rpc.mainnet.taiko.xyz', 'https://rpc.ankr.com/taiko', 'https://taiko.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -477,7 +477,7 @@ export const TAIKO_LIVENET = {
 export const FANTOM_TESTNET = {
   chainId: '0xfa2',
   chainName: 'Fantom Testnet',
-  rpcUrls: ['https://rpc.testnet.fantom.network/'],
+  rpcUrls: ['https://rpc.testnet.fantom.network/', 'https://rpc.ankr.com/fantom_testnet', 'https://fantom-testnet-rpc.publicnode.com'],
   nativeCurrency: {
     name: 'FTM',
     symbol: 'FTM',
@@ -489,7 +489,7 @@ export const FANTOM_TESTNET = {
 export const FANTOM_LIVENET = {
   chainId: '0xfa',
   chainName: 'Fantom Opera',
-  rpcUrls: ['https://rpcapi.fantom.network'],
+  rpcUrls: ['https://rpcapi.fantom.network', 'https://rpc3.fantom.network', 'https://rpc2.fantom.network', 'https://rpc.ankr.com/fantom'],
   nativeCurrency: {
     name: 'FTM',
     symbol: 'FTM',
@@ -501,7 +501,7 @@ export const FANTOM_LIVENET = {
 export const ETHEREUM_TESTNET = {
   chainId: '0xaa36a7',
   chainName: 'Sepolia',
-  rpcUrls: ['https://rpc2.sepolia.org'],
+  rpcUrls: ['https://rpc.sepolia.org', 'https://rpc2.sepolia.org', 'https://sepolia.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -513,7 +513,7 @@ export const ETHEREUM_TESTNET = {
 export const ETHEREUM_LIVENET = {
   chainId: '0x1',
   chainName: 'Ethereum',
-  rpcUrls: ['https://ethereum-rpc.publicnode.com'],
+  rpcUrls: ['https://ethereum-rpc.publicnode.com', 'https://rpc.ankr.com/eth', 'https://ethereum-rpc.publicnode.com', 'https://eth.drpc.org'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
@@ -525,7 +525,7 @@ export const ETHEREUM_LIVENET = {
 export const XLAYER_TESTNET = {
   chainId: '0xc3',
   chainName: 'X Layer testnet',
-  rpcUrls: ['https://testrpc.xlayer.tech'],
+  rpcUrls: ['https://testrpc.xlayer.tech', 'https://xlayertestrpc.okx.com'],
   nativeCurrency: {
     name: 'OKB',
     symbol: 'OKB',
@@ -537,7 +537,7 @@ export const XLAYER_TESTNET = {
 export const XLAYER_LIVENET = {
   chainId: '0xc4',
   chainName: 'X Layer mainnet',
-  rpcUrls: ['https://rpc.xlayer.tech'],
+  rpcUrls: ['https://rpc.xlayer.tech', 'https://xlayerrpc.okx.com'],
   nativeCurrency: {
     name: 'OKB',
     symbol: 'OKB',
@@ -549,7 +549,7 @@ export const XLAYER_LIVENET = {
 export const ZETACHAIN_TESTNET = {
   chainId: '0x1b59',
   chainName: 'ZetaChain Testnet',
-  rpcUrls: ['https://zetachain-athens-evm.blockpi.network/v1/rpc/public'],
+  rpcUrls: ['https://zetachain-athens-evm.blockpi.network/v1/rpc/public', 'https://zeta-chain-testnet.drpc.org', 'https://zetachain-testnet.public.blastapi.io'],
   nativeCurrency: {
     name: 'ZETA',
     symbol: 'ZETA',
@@ -561,7 +561,7 @@ export const ZETACHAIN_TESTNET = {
 export const ZETACHAIN_LIVENET = {
   chainId: '0x1b58',
   chainName: 'ZetaChain Mainnet',
-  rpcUrls: ['https://zetachain-evm.blockpi.network/v1/rpc/public'],
+  rpcUrls: ['https://zetachain-evm.blockpi.network/v1/rpc/public', 'https://zeta-chain.drpc.org', 'https://zetachain-mainnet.public.blastapi.io'],
   nativeCurrency: {
     name: 'ZETA',
     symbol: 'ZETA',
@@ -681,7 +681,7 @@ export const OPBNB_TESTNET = {
 export const OPBNB_LIVENET = {
   chainId: '0xcc',
   chainName: 'opBNB Mainnet',
-  rpcUrls: ['https://opbnb-mainnet-rpc.bnbchain.org'],
+  rpcUrls: ['https://opbnb-mainnet-rpc.bnbchain.org', 'https://opbnb.drpc.org', 'https://opbnb-rpc.publicnode.com'],
   nativeCurrency: {
     name: 'BNB',
     symbol: 'BNB',
