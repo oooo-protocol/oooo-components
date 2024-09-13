@@ -1,11 +1,11 @@
 import { WALLET, type FractalWalletImpl } from '../types'
 import Wrapper from '../wrapper'
-import { UnisatWallet } from '../wallet/unisat'
+import { UnisatFractalWallet } from '../wallet/unisat-fractal'
 
 const wrapper = new Wrapper<FractalWalletImpl>(
   'oooo-fractal-wallet',
   {
-    [WALLET.UNISAT]: UnisatWallet
+    [WALLET.UNISAT]: UnisatFractalWallet
   }
 )
 
