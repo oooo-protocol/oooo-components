@@ -729,7 +729,7 @@ export const BERA_TESTNET = {
 export const PLUME_TESTNET = {
   chainId: '0x99c0a0f',
   chainName: 'Plume Testnet',
-  rpcUrls: ['https://testnet-rpc.plumenetwork.xyz/http'],
+  rpcUrls: ['https://testnet-rpc.plumenetwork.xyz/infra-partner-http'],
   nativeCurrency: {
     name: 'ETH',
     symbol: 'ETH',
