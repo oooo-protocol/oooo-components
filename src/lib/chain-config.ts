@@ -713,3 +713,27 @@ export const STORY_TESTNET = {
   },
   blockExplorerUrls: ['https://testnet.storyscan.xyz/']
 }
+
+export const BERA_TESTNET = {
+  chainId: '0x138d4',
+  chainName: 'Berachain bArtio',
+  rpcUrls: ['https://bartio.rpc.berachain.com/'],
+  nativeCurrency: {
+    name: 'BERA',
+    symbol: 'BERA',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://bartio.beratrail.io/']
+}
+
+export const PLUME_TESTNET = {
+  chainId: '0x99c0a0f',
+  chainName: 'Plume Testnet',
+  rpcUrls: ['https://testnet-rpc.plumenetwork.xyz/http'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet-explorer.plumenetwork.xyz/']
+}
