@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@binance/w3w-ethereum-provider": "1.1.8-alpha.0",
     "@preflower/utils": "^1.1.0",
     "@tanstack/vue-query": "^5.32.0",
     "@tanstack/vue-table": "^8.15.3",
@@ -17,6 +18,7 @@
     "@vueuse/core": "^10.10.0",
     "@walletconnect/ethereum-provider": "^2.14.0",
     "bitcoin-address-validation": "^2.2.3",
+    "buffer": "^6.0.3",
     "clsx": "^2.1.0",
     "decimal.js-light": "^2.5.1",
     "embla-carousel": "^8.1.3",
