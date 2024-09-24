@@ -87,7 +87,7 @@ export const FRACTAL_TESTNET = {
 
 export const FRACTAL_LIVENET = {
   chainName: 'FRACTAL_BITCOIN_MAINNET',
-  blockExplorerUrls: ['https://mempool-testnet.fractalbitcoin.io']
+  blockExplorerUrls: ['https://mempool.fractalbitcoin.io']
 }
 
 export const MERLIN_TESTNET = {
