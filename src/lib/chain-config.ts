@@ -737,3 +737,27 @@ export const PLUME_TESTNET = {
   },
   blockExplorerUrls: ['https://testnet-explorer.plumenetwork.xyz/']
 }
+
+export const GRAVITY_TESTNET = {
+  chainId: '0x34c1',
+  chainName: 'Gravity Alpha Testnet Sepolia',
+  rpcUrls: ['https://rpc-sepolia.gravity.xyz'],
+  nativeCurrency: {
+    name: 'G',
+    symbol: 'G',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer-sepolia.gravity.xyz']
+}
+
+export const GRAVITY_LIVENET = {
+  chainId: '0x659',
+  chainName: 'Gravity Alpha Mainnet',
+  rpcUrls: ['https://rpc.gravity.xyz'],
+  nativeCurrency: {
+    name: 'G',
+    symbol: 'G',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.gravity.xyz/']
+}
