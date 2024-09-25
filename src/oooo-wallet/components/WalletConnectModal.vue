@@ -11,7 +11,7 @@ import { useBTCWallet } from '../bitcoin/use-btc-wallet'
 import { useEVMWallet } from '../ethereum/use-evm-wallet'
 
 import { NETWORK, WALLET_TYPE, type WALLET } from '../types'
-import { BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, WALLET_CONFIG_MAP } from '../config'
+import { BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, FRACTAL_LIVENET_WALLET, FRACTAL_TESTNET_WALLET, WALLET_CONFIG_MAP } from '../config'
 import { computed, ref } from 'vue'
 import { useFractalWallet } from '../fractal/use-fractal-wallet'
 
@@ -43,7 +43,7 @@ const config = computed(() => {
   } else if (props.type === WALLET_TYPE.FRACTAL) {
     return {
       title: 'FRACTAL BITCOIN WALLET',
-      list: props.network === NETWORK.LIVENET ? BTC_LIVENET_WALLET : BTC_TESTNET_WALLETS,
+      list: props.network === NETWORK.LIVENET ? FRACTAL_LIVENET_WALLET : FRACTAL_TESTNET_WALLET,
       onClick: onConnectFractalWallet
     }
   } else {
