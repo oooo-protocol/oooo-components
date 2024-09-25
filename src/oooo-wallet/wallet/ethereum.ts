@@ -162,6 +162,7 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async tokenTransfer (parameter: TransactionParameter, contractAddress: string) {
     const provider = new ethers.BrowserProvider(this.provider)
+    console.log(provider)
     try {
       const signer = await provider.getSigner()
       const contract = new ethers.Contract(contractAddress, ERC20_ABI, signer)
@@ -199,6 +200,7 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async transfer (parameter: TransactionParameter, config: ChainConfig) {
     const provider = new ethers.BrowserProvider(this.provider)
+    console.log(provider)
     try {
       const signer = await provider.getSigner()
       const params: TransactionRequest = {
