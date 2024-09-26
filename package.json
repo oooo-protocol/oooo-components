@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@binance/w3w-ethereum-provider": "1.1.8-alpha.0",
+    "@binance/w3w-http-client": "^1.1.4",
     "@preflower/utils": "^1.1.0",
     "@tanstack/vue-query": "^5.32.0",
     "@tanstack/vue-table": "^8.15.3",

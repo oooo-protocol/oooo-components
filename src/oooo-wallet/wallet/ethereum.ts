@@ -3,7 +3,7 @@ import { ethers, formatEther, toUtf8Bytes, hexlify, formatUnits, type Transactio
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { EVM_ADDRESS_REGEXP, getRpcProvider } from 'oooo-components/lib/utils'
 
-const ERC20_ABI = [
+export const ERC20_ABI = [
   {
     constant: true,
     inputs: [{ name: '_owner', type: 'address' }],
@@ -200,7 +200,6 @@ export class EthereumWallet implements EthereumWalletImpl {
 
   async transfer (parameter: TransactionParameter, config: ChainConfig) {
     const provider = new ethers.BrowserProvider(this.provider)
-    console.log(provider)
     try {
       const signer = await provider.getSigner()
       const params: TransactionRequest = {
