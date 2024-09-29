@@ -761,3 +761,15 @@ export const GRAVITY_LIVENET = {
   },
   blockExplorerUrls: ['https://explorer.gravity.xyz/']
 }
+
+export const CITREA_TESTNET = {
+  chainId: '0x13fb',
+  chainName: 'Citrea Testnet',
+  rpcUrls: ['https://rpc.testnet.citrea.xyz'],
+  nativeCurrency: {
+    name: 'cBTC',
+    symbol: 'cBTC',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.testnet.citrea.xyz']
+}
