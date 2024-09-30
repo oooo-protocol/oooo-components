@@ -783,5 +783,5 @@ export const DUCKCHAIN_TESTNET = {
     symbol: 'cBTC',
     decimals: 18
   },
-  blockExplorerUrls: ['https://testnet-scan.duckchain.io ']
+  blockExplorerUrls: ['https://testnet-scan.duckchain.io']
 }
