@@ -773,3 +773,15 @@ export const CITREA_TESTNET = {
   },
   blockExplorerUrls: ['https://explorer.testnet.citrea.xyz']
 }
+
+export const DUCKCHAIN_TESTNET = {
+  chainId: '0x31579',
+  chainName: 'DuckChain Testnet',
+  rpcUrls: ['https://testnet-rpc.duckchain.io'],
+  nativeCurrency: {
+    name: 'cBTC',
+    symbol: 'cBTC',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet-scan.duckchain.io ']
+}
