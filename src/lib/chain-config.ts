@@ -785,3 +785,27 @@ export const DUCKCHAIN_TESTNET = {
   },
   blockExplorerUrls: ['https://testnet-scan.duckchain.io']
 }
+
+export const BITFINITY_TESTNET = {
+  chainId: '0x56b29',
+  chainName: 'Bitfinity Network Testnet',
+  rpcUrls: ['https://testnet.bitfinity.network'],
+  nativeCurrency: {
+    name: 'BFT',
+    symbol: 'BFT',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.testnet.bitfinity.network']
+}
+
+export const BITFINITY_LIVENET = {
+  chainId: '0x56b26',
+  chainName: 'Bitfinity Network Mainnet',
+  rpcUrls: ['https://mainnet.bitfinity.network'],
+  nativeCurrency: {
+    name: 'BFT',
+    symbol: 'BFT',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.mainnet.bitfinity.network']
+}
