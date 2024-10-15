@@ -809,3 +809,27 @@ export const BITFINITY_LIVENET = {
   },
   blockExplorerUrls: ['https://explorer.mainnet.bitfinity.network']
 }
+
+export const UNICHAIN_TESTNET = {
+  chainId: '0x515',
+  chainName: 'Unichain Sepolia',
+  rpcUrls: ['https://sepolia.unichain.org'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://sepolia.uniscan.xyz/']
+}
+
+export const ZIRCUIT_TESTNET = {
+  chainId: '0xbf03',
+  chainName: 'Zircuit Testnet',
+  rpcUrls: ['https://zircuit1.p2pify.com/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.testnet.zircuit.com']
+}
