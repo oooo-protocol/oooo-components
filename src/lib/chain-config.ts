@@ -833,3 +833,27 @@ export const ZIRCUIT_TESTNET = {
   },
   blockExplorerUrls: ['https://explorer.testnet.zircuit.com']
 }
+
+export const APECHAIN_TESTNET = {
+  chainId: '0x8157',
+  chainName: 'Curtis',
+  rpcUrls: ['https://curtis.rpc.caldera.xyz/http'],
+  nativeCurrency: {
+    name: 'APE',
+    symbol: 'APE',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://curtis.explorer.caldera.xyz/']
+}
+
+export const APECHAIN_LIVENET = {
+  chainId: '0x8173',
+  chainName: 'ApeChain',
+  rpcUrls: ['https://apechain.calderachain.xyz/http'],
+  nativeCurrency: {
+    name: 'APE',
+    symbol: 'APE',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://apechain.calderaexplorer.xyz/']
+}
