@@ -43,9 +43,10 @@ const table = useVueTable({
 </script>
 
 <template>
-  <Table>
+  <Table class="border-separate border-spacing-y-[6px]">
     <TableHeader>
       <TableRow
+        class="bg-none"
         v-for="headerGroup in table.getHeaderGroups()"
         :key="headerGroup.id"
       >
@@ -83,14 +84,17 @@ const table = useVueTable({
       <template v-else>
         <TableRow>
           <TableCell
-            :colSpan="columns.length"
+            :colspan="columns.length"
             class="h-24 text-center"
           >
             NO RESULTS.
           </TableCell>
         </TableRow>
       </template>
-      <div class="absolute top-0 flex justify-center items-center w-full h-full bg-background/50" v-if="loading">
+      <div
+        class="absolute top-0 flex justify-center items-center w-full h-full bg-background/50"
+        v-if="loading"
+      >
         <Loader2 class="w-6 h-6 animate-spin" />
       </div>
     </TableBody>
