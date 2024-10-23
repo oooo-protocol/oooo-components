@@ -39,7 +39,7 @@ const { data: price } = useQuery({
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row justify-between md:items-end mt-[auto] pt-[14px] pb-[40px] xl:pt-[40px] px-[24px] md:px-[48px] xl:px-[120px] normal-case">
+  <div class="flex flex-col md:flex-row justify-between md:items-end mt-[auto] pt-[14px] pb-[40px] xl:pt-[40px] px-[24px] md:px-[48px] xl:px-[60px] normal-case">
     <div class="xl:w-[300px] hidden md:block">
       <a
         v-if="!isHideLogo"
