@@ -857,3 +857,39 @@ export const APECHAIN_LIVENET = {
   },
   blockExplorerUrls: ['https://apechain.calderaexplorer.xyz/']
 }
+
+export const TELOS_TESTNET = {
+  chainId: '0x29',
+  chainName: 'Telos Testnet',
+  rpcUrls: ['https://testnet.telos.net/evm'],
+  nativeCurrency: {
+    name: 'TLOS',
+    symbol: 'TLOS',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://testnet.teloscan.io']
+}
+
+export const TELOS_LIVENET = {
+  chainId: '0x28',
+  chainName: 'Telos Mainnet',
+  rpcUrls: ['https://mainnet.telos.net/evm'],
+  nativeCurrency: {
+    name: 'TLOS',
+    symbol: 'TLOS',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://www.teloscan.io/']
+}
+
+export const ABSTRACT_TESTNET = {
+  chainId: '0x2b74',
+  chainName: 'Abstract Testnet',
+  rpcUrls: ['https://api.testnet.abs.xyz'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.testnet.abs.xyz']
+}
