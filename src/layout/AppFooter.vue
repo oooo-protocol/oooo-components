@@ -11,10 +11,6 @@ const links = [
     name: 'X.com',
     link: 'https://twitter.com/oooo_money'
   },
-  // {
-  //   name: 'Telegram',
-  //   link: ''
-  // },
   {
     name: 'Medium',
     link: 'https://medium.com/@oooo-prot'
@@ -22,6 +18,10 @@ const links = [
   {
     name: 'Discord',
     link: 'https://discord.gg/ooooprotocol'
+  },
+  {
+    name: 'Telegram',
+    link: 'https://t.me/oooo_protocol'
   }
 ]
 
