@@ -89,8 +89,7 @@ export class StandardWallet implements AptosWalletImpl {
     const res = await this.provider.signAndSubmitTransaction({
       gasUnitPrice: Number(parameter.gas),
       payload: {
-        function: '0x1::coin::transfer',
-        typeArguments: ['0x1::aptos_coin::AptosCoin'],
+        function: '0x1::aptos_account::transfer',
         functionArguments: [
           parameter.to,
           Number(parseUnits(parameter.value, config.nativeCurrency.decimals))
