@@ -12,13 +12,16 @@ export enum WALLET {
   TOKENPOCKET,
   COIN98,
   WALLETCONNCET,
-  BINANCE
+  BINANCE,
+  RAZOR,
+  NIGHTLY
 }
 
 export enum WALLET_TYPE {
   BITCOIN = 'bitcoin',
   ETHEREUM = 'ethereum',
-  FRACTAL = 'fractal bitcoin'
+  FRACTAL = 'fractal bitcoin',
+  APTOS = 'aptos'
 }
 
 export enum NETWORK {
@@ -56,14 +59,14 @@ export interface WalletImpl {
   getAccounts: () => Promise<string[]>
   connect: () => Promise<string>
   disconnect: () => Promise<void>
-  sign: (message: string, from: string) => Promise<string>
-  accountsChangedEventName: string
+  accountsChangedEventName?: string
   onAccountsChanged: (...props: any) => void
   addAccountChanged: (event: onAccountChangedEvent) => void
 }
 
 export interface EthereumWalletImpl extends WalletImpl {
   type: WALLET_TYPE.ETHEREUM
+  sign: (message: string, from: string) => Promise<string>
   getNativeBalance: (address: string, config: ChainConfig) => Promise<string>
   getTokenBalance: (address: string, config: ChainConfig, contractAddress: string) => Promise<string>
   transfer: (parameter: TransactionParameter, chain: ChainConfig) => Promise<string>
@@ -73,6 +76,7 @@ export interface EthereumWalletImpl extends WalletImpl {
 
 export interface BitcoinWalletImpl extends WalletImpl {
   type: WALLET_TYPE.BITCOIN
+  sign: (message: string) => Promise<string>
   getPublicKey: () => Promise<string>
   getNativeBalance: () => Promise<string>
   transfer: (parameter: TransactionParameter) => Promise<string>
@@ -82,6 +86,7 @@ export interface BitcoinWalletImpl extends WalletImpl {
 
 export interface FractalWalletImpl extends WalletImpl {
   type: WALLET_TYPE.FRACTAL
+  sign: (message: string) => Promise<string>
   getPublicKey: () => Promise<string>
   getNativeBalance: () => Promise<string>
   transfer: (parameter: TransactionParameter) => Promise<string>

@@ -8,6 +8,8 @@ import TOKENPOCKET_IMAGE from './images/tokenpocket.png'
 import COIN98_IMAGE from './images/coin98.png'
 import WALLETCONNCET_IMAGE from './images/walletconnect.png'
 import BINANCE_IMAGE from './images/binance.png'
+import NIGHTLY_IMAGE from './images/nightly.png'
+import RAZOR_IMAGE from './images/razor.png'
 import { WALLET } from './types'
 import { defineMap } from '@preflower/utils'
 
@@ -80,6 +82,16 @@ export const WALLETS = [
     name: 'BINANCE WALLET',
     value: WALLET.BINANCE,
     image: BINANCE_IMAGE
+  },
+  {
+    name: 'RAZOR',
+    value: WALLET.RAZOR,
+    image: RAZOR_IMAGE
+  },
+  {
+    name: 'NIGHTLY',
+    value: WALLET.NIGHTLY,
+    image: NIGHTLY_IMAGE
   }
 ]
 
@@ -116,4 +128,9 @@ export const FRACTAL_TESTNET_WALLET = [
 export const FRACTAL_LIVENET_WALLET = [
   WALLET.UNISAT,
   WALLET.OKX
+]
+
+export const APTOS_WALLETS = [
+  WALLET.RAZOR,
+  WALLET.NIGHTLY
 ]

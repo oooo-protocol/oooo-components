@@ -1,7 +1,7 @@
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { EthereumWallet } from './ethereum'
 import { ethers, type TransactionRequest } from 'ethers'
-import { type TransactionParameter, type ChainConfig } from '../types'
+import { type TransactionParameter, type ChainConfig } from '../../types'
 
 export class BybitEthereumWallet extends EthereumWallet {
   async getProvider () {

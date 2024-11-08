@@ -8,3 +8,9 @@ export class NoAlarmException extends Error {
     this.name = 'NoAlarmException'
   }
 }
+
+export class UserRejectException extends NoAlarmException {
+  constructor () {
+    super('User rejected the operation')
+  }
+}

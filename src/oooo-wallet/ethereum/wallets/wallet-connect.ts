@@ -1,4 +1,4 @@
-import { type ChainConfig } from '../types'
+import { type ChainConfig } from '../../types'
 import { EthereumWallet } from './ethereum'
 import { EthereumProvider, type EthereumProviderOptions } from '@walletconnect/ethereum-provider'
 

@@ -1,4 +1,4 @@
-import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../types'
+import { WALLET_TYPE, type TransactionParameter, type EthereumWalletImpl, type onAccountChangedEvent, type ChainConfig } from '../../types'
 import { ethers, formatEther, toUtf8Bytes, hexlify, formatUnits, type TransactionRequest } from 'ethers'
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { EVM_ADDRESS_REGEXP, getRpcProvider } from 'oooo-components/lib/utils'

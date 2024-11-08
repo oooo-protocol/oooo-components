@@ -11,9 +11,10 @@ import { useBTCWallet } from '../bitcoin/use-btc-wallet'
 import { useEVMWallet } from '../ethereum/use-evm-wallet'
 
 import { NETWORK, WALLET_TYPE, type WALLET } from '../types'
-import { BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, FRACTAL_LIVENET_WALLET, FRACTAL_TESTNET_WALLET, WALLET_CONFIG_MAP } from '../config'
+import { APTOS_WALLETS, BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, FRACTAL_LIVENET_WALLET, FRACTAL_TESTNET_WALLET, WALLET_CONFIG_MAP } from '../config'
 import { computed, ref } from 'vue'
 import { useFractalWallet } from '../fractal/use-fractal-wallet'
+import { useAptosWallet } from '../aptos/use-aptos-wallet'
 
 defineOptions({
   name: 'WalletConnectModal'
@@ -31,6 +32,7 @@ const props = defineProps<WalletConnectModalProps>()
 const { onConnect: onBTCConnect, getWalletInstance: getBTCWalletInstance } = useBTCWallet()
 const { onConnect: onEVMConnect } = useEVMWallet()
 const { onConnect: onFractalConnect, getWalletInstance: getFractalWalletInstance } = useFractalWallet()
+const { onConnect: onAptosConnect } = useAptosWallet()
 const { toast } = useToast()
 
 const config = computed(() => {
@@ -45,6 +47,12 @@ const config = computed(() => {
       title: 'FRACTAL BITCOIN WALLET',
       list: props.network === NETWORK.LIVENET ? FRACTAL_LIVENET_WALLET : FRACTAL_TESTNET_WALLET,
       onClick: onConnectFractalWallet
+    }
+  } else if (props.type === WALLET_TYPE.APTOS) {
+    return {
+      title: 'APTOS WALLET',
+      list: APTOS_WALLETS,
+      onClick: onConnectAptosWallet
     }
   } else {
     return {
@@ -91,6 +99,17 @@ const onConnectFractalWallet = async (name: WALLET) => {
     if (props.network != null) {
       await instance.switchChain(props.network === NETWORK.LIVENET ? 'FRACTAL_BITCOIN_MAINNET' : 'FRACTAL_BITCOIN_TESTNET')
     }
+    open.value = false
+  } catch (e) {
+    toast({
+      description: (e as Error).message
+    })
+  }
+}
+
+const onConnectAptosWallet = async (name: WALLET) => {
+  try {
+    await onAptosConnect(name)
     open.value = false
   } catch (e) {
     toast({

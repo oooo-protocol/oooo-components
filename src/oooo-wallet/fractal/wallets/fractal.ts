@@ -1,4 +1,4 @@
-import { WALLET_TYPE, type onAccountChangedEvent, type TransactionParameter, type NETWORK, type FractalWalletImpl } from '../types'
+import { WALLET_TYPE, type onAccountChangedEvent, type TransactionParameter, type NETWORK, type FractalWalletImpl } from '../../types'
 import { Decimal } from 'decimal.js-light'
 
 export class FractalWallet implements FractalWalletImpl {

@@ -1,10 +1,10 @@
 import { WALLET, type BitcoinWalletImpl } from '../types'
 import Wrapper from '../wrapper'
-import { OKXBitcoinWallet } from '../wallet/okx-bitcoin'
-import { UnisatWallet } from '../wallet/unisat'
-import { BybitBitcoinWallet } from '../wallet/bybit-bitcoin'
-import { OnekeyBitcoinWallet } from '../wallet/onekey-bitcoin'
-import { BitgetBitcoinWallet } from '../wallet/bitget-bitcoin'
+import { OKXBitcoinWallet } from './wallets/okx-bitcoin'
+import { UnisatWallet } from './wallets/unisat'
+import { BybitBitcoinWallet } from './wallets/bybit-bitcoin'
+import { OnekeyBitcoinWallet } from './wallets/onekey-bitcoin'
+import { BitgetBitcoinWallet } from './wallets/bitget-bitcoin'
 
 const wrapper = new Wrapper<BitcoinWalletImpl>(
   'oooo-btc-wallet',

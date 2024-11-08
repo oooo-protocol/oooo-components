@@ -893,3 +893,15 @@ export const ABSTRACT_TESTNET = {
   },
   blockExplorerUrls: ['https://explorer.testnet.abs.xyz']
 }
+
+export const MOVEMENT_APTOS_TESTNET = {
+  chainId: '0xb1',
+  chainName: 'custom',
+  rpcUrls: ['https://aptos.testnet.porto.movementlabs.xyz/v1'],
+  nativeCurrency: {
+    name: 'MOVE',
+    symbol: 'MOVE',
+    decimals: 8
+  },
+  blockExplorerUrls: ['https://explorer.movementnetwork.xyz/']
+}

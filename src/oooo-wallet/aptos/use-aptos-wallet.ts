@@ -1,17 +1,18 @@
-import { WALLET, type FractalWalletImpl } from '../types'
+import { WALLET } from '../types'
 import Wrapper from '../wrapper'
-import { UnisatFractalWallet } from './wallets/unisat-fractal'
-import { OKXFractalWallet } from './wallets/okx-fractal'
+import { type AptosWalletImpl } from './types'
+import { RazorWallet } from './wallets/razor'
+import { NightlyWallet } from './wallets/nightly'
 
-const wrapper = new Wrapper<FractalWalletImpl>(
-  'oooo-fractal-wallet',
+const wrapper = new Wrapper<AptosWalletImpl>(
+  'oooo-aptos-wallet',
   {
-    [WALLET.UNISAT]: UnisatFractalWallet,
-    [WALLET.OKX]: OKXFractalWallet
+    [WALLET.RAZOR]: RazorWallet,
+    [WALLET.NIGHTLY]: NightlyWallet
   }
 )
 
-export const useFractalWallet = () => {
+export const useAptosWallet = () => {
   const getWalletInstance = () => {
     return wrapper.instance
   }

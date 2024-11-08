@@ -1,14 +1,14 @@
 import { type EthereumWalletImpl, WALLET } from '../types'
 import Wrapper from '../wrapper'
-import { MetamaskWallet } from '../wallet/metamask'
-import { OKXEthereumWallet } from '../wallet/okx-evm'
-import { OnekeyEthereumWallet } from '../wallet/onekey-evm'
-import { BybitEthereumWallet } from '../wallet/bybit-evm'
-import { BitgetEthereumWallet } from '../wallet/bitget-evm'
-import { TokenPocketEthereumWallet } from '../wallet/tokenpocket-evm'
-import { Coin98EthereumWallet } from '../wallet/coin98-evm'
-import { WalletConnectWallet } from '../wallet/wallet-connect'
-import { BinanceEthereumWallet } from '../wallet/binance-evm'
+import { MetamaskWallet } from './wallets/metamask'
+import { OKXEthereumWallet } from './wallets/okx-evm'
+import { OnekeyEthereumWallet } from './wallets/onekey-evm'
+import { BybitEthereumWallet } from './wallets/bybit-evm'
+import { BitgetEthereumWallet } from './wallets/bitget-evm'
+import { TokenPocketEthereumWallet } from './wallets/tokenpocket-evm'
+import { Coin98EthereumWallet } from './wallets/coin98-evm'
+import { WalletConnectWallet } from './wallets/wallet-connect'
+import { BinanceEthereumWallet } from './wallets/binance-evm'
 
 const wrapper = new Wrapper<EthereumWalletImpl>(
   'oooo-evm-wallet',

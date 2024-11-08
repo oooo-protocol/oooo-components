@@ -1,7 +1,7 @@
 import { EthereumWallet } from './ethereum'
 import { getProvider } from '@binance/w3w-ethereum-provider'
 import { Buffer } from 'buffer'
-import { type ChainConfig } from '../types'
+import { type ChainConfig } from '../../types'
 import { HttpClient } from '@binance/w3w-http-client'
 
 // fix @binance/w3w-ethereum-provider dependence Nodejs Buffer api error
