@@ -1,9 +1,10 @@
-import { WALLET_TYPE, type onAccountChangedEvent, type TransactionParameter, type ChainConfig } from '../../types'
-import { type AptosWalletImpl } from '../types'
+import { WALLET_TYPE, type onAccountChangedEvent, type TransactionParameter } from '../../types'
+import { type AptosTokenConfigWithRpc, type AptosTokenConfig, type AptosWalletImpl } from '../types'
 import { AccountAssetManager, WalletAdapter } from '@razorlabs/m1-wallet-sdk'
 import { type AccountInfo, type AptosWallet, type NetworkInfo, UserResponseStatus } from '@aptos-labs/wallet-standard'
 import { UserRejectException } from 'oooo-components/lib/exception'
 import { formatUnits, parseUnits } from 'ethers'
+import { type MoveFunctionId } from '@aptos-labs/ts-sdk'
 
 export class StandardWallet implements AptosWalletImpl {
   readonly type = WALLET_TYPE.APTOS
@@ -35,12 +36,12 @@ export class StandardWallet implements AptosWalletImpl {
     return this.provider.accounts.map(account => account.address)
   }
 
-  async getNativeBalance (address: string, config: ChainConfig) {
+  async getBalance (address: string, config: AptosTokenConfigWithRpc) {
     const accountAssetManager = new AccountAssetManager(address, {
-      chainRpcUrl: config.rpcUrls[0]
+      chainRpcUrl: config.chainRpcUrl
     })
-    const balance = await accountAssetManager.getCoinBalance('0x1::aptos_coin::AptosCoin')
-    const decimals = config.nativeCurrency.decimals
+    const balance = await accountAssetManager.getCoinBalance(config.coinType ?? '0x1::aptos_coin::AptosCoin')
+    const decimals = config.decimals
     return formatUnits(balance.toString(), decimals)
   }
 
@@ -85,15 +86,16 @@ export class StandardWallet implements AptosWalletImpl {
     return publicKey
   }
 
-  async transfer (parameter: TransactionParameter, config: ChainConfig) {
+  async transfer (parameter: TransactionParameter, config: AptosTokenConfig) {
     const res = await this.provider.signAndSubmitTransaction({
       gasUnitPrice: Number(parameter.gas),
       payload: {
-        function: '0x1::aptos_account::transfer',
+        function: config.function as MoveFunctionId,
         functionArguments: [
           parameter.to,
-          Number(parseUnits(parameter.value, config.nativeCurrency.decimals))
-        ]
+          Number(parseUnits(parameter.value, config.decimals))
+        ],
+        typeArguments: config.coinType != null ? [config.coinType] : undefined
       }
     })
     console.log(res)

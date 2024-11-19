@@ -927,5 +927,29 @@ export const MOVEMENT_APTOS_TESTNET = {
     symbol: 'MOVE',
     decimals: 8
   },
-  blockExplorerUrls: ['https://explorer.movementnetwork.xyz/']
+  blockExplorerUrls: ['https://explorer.movementnetwork.xyz/?network=porto+testnet']
+}
+
+export const APTOS_TESTNET = {
+  chainId: '0x2',
+  chainName: 'Testnet',
+  rpcUrls: ['https://fullnode.testnet.aptoslabs.com/v1'],
+  nativeCurrency: {
+    name: 'APT',
+    symbol: 'APT',
+    decimals: 8
+  },
+  blockExplorerUrls: ['https://explorer.aptoslabs.com/?network=testnet']
+}
+
+export const APTOS_LIVENET = {
+  chainId: '0x1',
+  chainName: 'Mainnet',
+  rpcUrls: ['https://fullnode.mainnet.aptoslabs.com/v1'],
+  nativeCurrency: {
+    name: 'APT',
+    symbol: 'APT',
+    decimals: 8
+  },
+  blockExplorerUrls: ['https://explorer.aptoslabs.com/']
 }
