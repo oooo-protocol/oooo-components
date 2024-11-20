@@ -108,6 +108,8 @@ export class StandardWallet implements AptosWalletImpl {
 
   async switchToChain (networkInfo: NetworkInfo) {
     console.log('switchToChain', networkInfo)
+    const currentNetwork = await this._standardAptosWallet.features['aptos:network'].network()
+    if (currentNetwork.chainId === networkInfo.chainId) return
     const feature = this._standardAptosWallet.features['aptos:changeNetwork']
     if (!feature) {
       throw new Error('Wallet not implement error')

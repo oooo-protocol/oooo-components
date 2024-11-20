@@ -1,6 +1,6 @@
 import { NoAlarmException } from 'oooo-components/lib/exception'
 import { StandardWallet } from './standard'
-import { getAptosWallets } from '@aptos-labs/wallet-standard'
+import { getAptosWallets, type NetworkInfo } from '@aptos-labs/wallet-standard'
 
 export class RazorWallet extends StandardWallet {
   async getProvider () {
@@ -13,7 +13,9 @@ export class RazorWallet extends StandardWallet {
     return wallet
   }
 
-  async switchToChain () {
-    console.error('Wallet not implement error')
+  async switchToChain (networkInfo: NetworkInfo) {
+    if (networkInfo.chainId !== 177) {
+      throw new Error('Razor Wallet current only support Movement Aptos chain')
+    }
   }
 }
