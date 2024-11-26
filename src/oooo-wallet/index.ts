@@ -6,6 +6,8 @@ export * from './fractal/use-fractal-wallet'
 
 export * from './aptos/use-aptos-wallet'
 
+export * from './movement-aptos/use-movement-aptos-wallet'
+
 export * from './aptos/types'
 
 export * from './config'

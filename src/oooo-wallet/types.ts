@@ -14,14 +14,17 @@ export enum WALLET {
   WALLETCONNCET,
   BINANCE,
   RAZOR,
-  NIGHTLY
+  NIGHTLY,
+  MARTIAN,
+  FEWCHA
 }
 
 export enum WALLET_TYPE {
   BITCOIN = 'bitcoin',
   ETHEREUM = 'ethereum',
   FRACTAL = 'fractal bitcoin',
-  APTOS = 'aptos'
+  APTOS = 'aptos',
+  MOVEMENT_APTOS = 'movement aptos'
 }
 
 export enum NETWORK {

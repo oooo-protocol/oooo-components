@@ -10,6 +10,7 @@ import WALLETCONNCET_IMAGE from './images/walletconnect.png'
 import BINANCE_IMAGE from './images/binance.png'
 import NIGHTLY_IMAGE from './images/nightly.png'
 import RAZOR_IMAGE from './images/razor.png'
+import MARTIAN_IMAGE from './images/martian.png'
 import { WALLET } from './types'
 import { defineMap } from '@preflower/utils'
 
@@ -92,6 +93,11 @@ export const WALLETS = [
     name: 'NIGHTLY',
     value: WALLET.NIGHTLY,
     image: NIGHTLY_IMAGE
+  },
+  {
+    name: 'MARTIAN',
+    value: WALLET.MARTIAN,
+    image: MARTIAN_IMAGE
   }
 ]
 
@@ -131,6 +137,12 @@ export const FRACTAL_LIVENET_WALLET = [
 ]
 
 export const APTOS_WALLETS = [
+  WALLET.MARTIAN,
+  WALLET.NIGHTLY,
+  WALLET.OKX
+]
+
+export const MOVMENT_APTOS_WALLETS = [
   WALLET.RAZOR,
   WALLET.NIGHTLY
 ]
