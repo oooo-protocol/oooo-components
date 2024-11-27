@@ -24,7 +24,8 @@ export enum WALLET_TYPE {
   ETHEREUM = 'ethereum',
   FRACTAL = 'fractal bitcoin',
   APTOS = 'aptos',
-  MOVEMENT_APTOS = 'movement aptos'
+  MOVEMENT_APTOS = 'movement aptos',
+  SUI = 'sui'
 }
 
 export enum NETWORK {
