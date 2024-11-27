@@ -779,11 +779,23 @@ export const DUCKCHAIN_TESTNET = {
   chainName: 'DuckChain Testnet',
   rpcUrls: ['https://testnet-rpc.duckchain.io'],
   nativeCurrency: {
-    name: 'cBTC',
-    symbol: 'cBTC',
+    name: 'TON',
+    symbol: 'TON',
     decimals: 18
   },
   blockExplorerUrls: ['https://testnet-scan.duckchain.io']
+}
+
+export const DUCKCHAIN_LIVENET = {
+  chainId: '0x15a9',
+  chainName: 'DuckChain Mainnet',
+  rpcUrls: ['https://rpc.duckchain.io', 'https://rpc-hk.duckchain.io'],
+  nativeCurrency: {
+    name: 'TON',
+    symbol: 'TON',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://scan.duckchain.io/']
 }
 
 export const BITFINITY_TESTNET = {
@@ -832,6 +844,18 @@ export const ZIRCUIT_TESTNET = {
     decimals: 18
   },
   blockExplorerUrls: ['https://explorer.testnet.zircuit.com']
+}
+
+export const ZIRCUIT_LIVENET = {
+  chainId: '0xbf04',
+  chainName: 'Zircuit',
+  rpcUrls: ['https://zircuit1-mainnet.p2pify.com/'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.zircuit.com']
 }
 
 export const APECHAIN_TESTNET = {
