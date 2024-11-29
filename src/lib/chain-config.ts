@@ -929,3 +929,39 @@ export const MOVEMENT_APTOS_TESTNET = {
   },
   blockExplorerUrls: ['https://explorer.movementnetwork.xyz/']
 }
+
+export const MORPH_TESTNET = {
+  chainId: '0xafa',
+  chainName: 'Morph Holesky Testnet',
+  rpcUrls: ['https://rpc-quicknode-holesky.morphl2.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer-holesky.morphl2.io/']
+}
+
+export const MORPH_LIVENET = {
+  chainId: '0xb02',
+  chainName: 'Morph Mainnet',
+  rpcUrls: ['https://rpc-quicknode.morphl2.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.morphl2.io/']
+}
+
+export const MEZO_TESTNET = {
+  chainId: '0x7b7b',
+  chainName: 'Mezo Testnet',
+  rpcUrls: ['https://rpc.test.mezo.org'],
+  nativeCurrency: {
+    name: 'BTC',
+    symbol: 'BTC',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://explorer.test.mezo.org/']
+}
