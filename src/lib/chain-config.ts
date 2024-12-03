@@ -989,3 +989,27 @@ export const MEZO_TESTNET = {
   },
   blockExplorerUrls: ['https://explorer.test.mezo.org/']
 }
+
+export const SWAN_TESTNET = {
+  chainId: '0x134daed',
+  chainName: 'Swan Proxima Testnet',
+  rpcUrls: ['https://rpc-proxima.swanchain.io'],
+  nativeCurrency: {
+    name: 'sETH',
+    symbol: 'sETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://proxima-explorer.swanchain.io/']
+}
+
+export const SWAN_LIVENET = {
+  chainId: '0xfe',
+  chainName: 'Swan chain mainnet',
+  rpcUrls: ['https://mainnet-rpc.swanchain.org', 'https://mainnet-rpc01.swanchain.io'],
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://swanscan.io']
+}
