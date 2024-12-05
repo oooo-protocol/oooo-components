@@ -1013,3 +1013,27 @@ export const SWAN_LIVENET = {
   },
   blockExplorerUrls: ['https://swanscan.io']
 }
+
+export const SUI_TESTNET = {
+  chainId: '0x2',
+  chainName: 'Sui Testnet',
+  rpcUrls: ['https://fullnode.testnet.sui.io/'],
+  nativeCurrency: {
+    name: 'SUI',
+    symbol: 'SUI',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://suiscan.xyz/testnet']
+}
+
+export const SUI_LIVENET = {
+  chainId: '0x1',
+  chainName: 'Sui Mainnet',
+  rpcUrls: ['https://rpc.sui.io/'],
+  nativeCurrency: {
+    name: 'SUI',
+    symbol: 'SUI',
+    decimals: 18
+  },
+  blockExplorerUrls: ['https://suiscan.xyz/mainnet']
+}

@@ -11,11 +11,12 @@ import { useBTCWallet } from '../bitcoin/use-btc-wallet'
 import { useEVMWallet } from '../ethereum/use-evm-wallet'
 
 import { NETWORK, WALLET_TYPE, type WALLET } from '../types'
-import { APTOS_WALLETS, BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, FRACTAL_LIVENET_WALLET, FRACTAL_TESTNET_WALLET, WALLET_CONFIG_MAP, MOVMENT_APTOS_WALLETS } from '../config'
+import { APTOS_WALLETS, BTC_LIVENET_WALLET, BTC_TESTNET_WALLETS, EVM_WALLETS, FRACTAL_LIVENET_WALLET, FRACTAL_TESTNET_WALLET, WALLET_CONFIG_MAP, MOVMENT_APTOS_WALLETS, SUI_WALLETS } from '../config'
 import { computed, ref } from 'vue'
 import { useFractalWallet } from '../fractal/use-fractal-wallet'
 import { useAptosWallet } from '../aptos/use-aptos-wallet'
 import { useMovementAptosWallet } from '../movement-aptos/use-movement-aptos-wallet'
+import { useSuiWallet } from '../sui/use-sui-wallet'
 
 defineOptions({
   name: 'WalletConnectModal'
@@ -35,6 +36,7 @@ const { onConnect: onEVMConnect } = useEVMWallet()
 const { onConnect: onFractalConnect, getWalletInstance: getFractalWalletInstance } = useFractalWallet()
 const { onConnect: onAptosConnect } = useAptosWallet()
 const { onConnect: onMovementAptosConnect } = useMovementAptosWallet()
+const { onConnect: onSuiConnect } = useSuiWallet()
 const { toast } = useToast()
 
 const config = computed(() => {
@@ -61,6 +63,12 @@ const config = computed(() => {
       title: 'MOVEMENT APTOS WALLET',
       list: MOVMENT_APTOS_WALLETS,
       onClick: onConnectMovementAptosWallet
+    }
+  } else if (props.type === WALLET_TYPE.SUI) {
+    return {
+      title: 'SUI WALLET',
+      list: SUI_WALLETS,
+      onClick: onConnectSuiWallet
     }
   } else {
     return {
@@ -129,6 +137,17 @@ const onConnectAptosWallet = async (name: WALLET) => {
 const onConnectMovementAptosWallet = async (name: WALLET) => {
   try {
     await onMovementAptosConnect(name)
+    open.value = false
+  } catch (e) {
+    toast({
+      description: (e as Error).message
+    })
+  }
+}
+
+const onConnectSuiWallet = async (name: WALLET) => {
+  try {
+    await onSuiConnect(name)
     open.value = false
   } catch (e) {
     toast({

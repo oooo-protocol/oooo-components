@@ -5,7 +5,7 @@ import { RazorWallet } from './wallets/razor'
 import { NightlyWallet } from './wallets/nightly'
 
 const wrapper = new Wrapper<MovementAptosWalletImpl>(
-  'oooo-aptos-wallet',
+  'oooo-movement-aptos-wallet',
   {
     [WALLET.RAZOR]: RazorWallet,
     [WALLET.NIGHTLY]: NightlyWallet

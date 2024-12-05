@@ -8,6 +8,10 @@ export * from './aptos/use-aptos-wallet'
 
 export * from './movement-aptos/use-movement-aptos-wallet'
 
+export * from './sui/use-sui-wallet'
+
+export * from './sui/types'
+
 export * from './aptos/types'
 
 export * from './config'

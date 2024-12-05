@@ -1,20 +1,21 @@
+import { type IdentifierString } from '@mysten/wallet-standard'
 import type { TransactionParameter, WALLET_TYPE, WalletImpl } from '../types'
 
-export interface AptosTokenConfig {
-  function: string
-  coinType?: string
+export interface SuiTokenConfig {
+  coinType: string
+  chain: IdentifierString
   decimals: number
 }
 
-export interface AptosTokenConfigWithRpc extends AptosTokenConfig {
+export interface SuiTokenConfigWithRpc extends SuiTokenConfig {
   chainRpcUrl: string
 }
 
 export interface SuiWalletImpl extends WalletImpl {
   type: WALLET_TYPE.SUI
   sign: (message: string) => Promise<string>
-  getPublicKey: () => Promise<PublicKey>
-  getBalance: (address: string, config: AptosTokenConfigWithRpc) => Promise<string>
-  transfer: (parameter: TransactionParameter, config: AptosTokenConfig) => Promise<string>
-  switchToChain: (network: Network) => Promise<void>
+  getPublicKey: () => Promise<string>
+  getBalance: (address: string, config: SuiTokenConfigWithRpc) => Promise<string>
+  transfer: (parameter: TransactionParameter, config: SuiTokenConfigWithRpc) => Promise<string>
+  estimateGas: (parameter: TransactionParameter, config: SuiTokenConfigWithRpc) => Promise<string>
 }

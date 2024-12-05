@@ -1,20 +1,16 @@
 import { WALLET } from '../types'
 import Wrapper from '../wrapper'
-import { type AptosWalletImpl } from './types'
-import { MartianWallet } from './wallets/martian'
-import { NightlyWallet } from './wallets/nightly'
-import { OKXWallet } from './wallets/okx'
+import { type SuiWalletImpl } from './types'
+import { SuietWallet } from './wallets/suiet'
 
-const wrapper = new Wrapper<AptosWalletImpl>(
-  'oooo-aptos-wallet',
+const wrapper = new Wrapper<SuiWalletImpl>(
+  'oooo-sui-wallet',
   {
-    [WALLET.MARTIAN]: MartianWallet,
-    [WALLET.NIGHTLY]: NightlyWallet,
-    [WALLET.OKX]: OKXWallet
+    [WALLET.SUIET]: SuietWallet
   }
 )
 
-export const useAptosWallet = () => {
+export const useSuiWallet = () => {
   const getWalletInstance = () => {
     return wrapper.instance
   }

@@ -16,7 +16,8 @@ export enum WALLET {
   RAZOR,
   NIGHTLY,
   MARTIAN,
-  FEWCHA
+  FEWCHA,
+  SUIET
 }
 
 export enum WALLET_TYPE {

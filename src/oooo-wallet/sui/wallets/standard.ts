@@ -1,9 +1,10 @@
 import { WALLET_TYPE, type onAccountChangedEvent, type TransactionParameter } from '../../types'
-import { type AptosTokenConfigWithRpc, type AptosTokenConfig, type SuiWalletImpl } from '../types'
+import { type SuiTokenConfigWithRpc, type SuiWalletImpl } from '../types'
 import { formatUnits, parseUnits, toUtf8Bytes } from 'ethers'
-import { type Wallet } from '@mysten/wallet-standard'
+import { type Wallet, type StandardEventsChangeProperties } from '@mysten/wallet-standard'
 import { AccountAssetManager, WalletAdapter } from '@suiet/wallet-sdk'
 import { Transaction } from '@mysten/sui/transactions'
+import { SuiClient } from '@mysten/sui/client'
 
 export class StandardWallet implements SuiWalletImpl {
   readonly type = WALLET_TYPE.SUI
@@ -35,11 +36,11 @@ export class StandardWallet implements SuiWalletImpl {
     return this.provider.accounts.map(account => account.address)
   }
 
-  async getBalance (address: string, config: AptosTokenConfigWithRpc) {
+  async getBalance (address: string, config: SuiTokenConfigWithRpc) {
     const accountAssetManager = new AccountAssetManager(address, {
       chainRpcUrl: config.chainRpcUrl
     })
-    const balance = await accountAssetManager.getCoinBalance(config.coinType ?? '0x1::aptos_coin::AptosCoin')
+    const balance = await accountAssetManager.getCoinBalance(config.coinType ?? '0x2::sui::SUI')
     const decimals = config.decimals
     return formatUnits(balance.toString(), decimals)
   }
@@ -74,41 +75,64 @@ export class StandardWallet implements SuiWalletImpl {
 
   async getPublicKey () {
     const account = this.provider.accounts[0]
-    return account.publicKey
+    return account.address
   }
 
-  async transfer (parameter: TransactionParameter, config: AptosTokenConfig) {
-    // 需要 decimals / chain 信息 / 代币地址
+  async transfer (parameter: TransactionParameter, config: SuiTokenConfigWithRpc) {
     const account = this.provider.accounts.find(item => item.address === parameter.from)
-
-    if (!account) throw new Error('Current address is not connected to the wallet')
+    if (account == null) throw new Error('Current address is not connected to the wallet')
 
     const tx = new Transaction()
-    const [coin] = tx.splitCoins('代币地址', [parseUnits(parameter.value, config.decimals)])
+    let coinObjectId
+    if (config.coinType === '0x2::sui::SUI') {
+      coinObjectId = tx.gas
+    } else {
+      const client = new SuiClient({ url: config.chainRpcUrl })
+      const { data: coins } = await client.getCoins({
+        owner: parameter.from,
+        coinType: config.coinType
+      })
+      coinObjectId = coins[0].coinObjectId
+    }
+    const [coin] = tx.splitCoins(coinObjectId, [parseUnits(parameter.value, config.decimals)])
     tx.transferObjects([coin], parameter.to)
     const res = await this.provider.signAndExecuteTransactionBlock({
       transactionBlock: tx,
       account,
-      chain: 'x:x'
+      chain: config.chain
     })
     console.log(res)
     return res.digest
   }
 
-  async switchToChain (networkInfo: NetworkInfo) {
-    console.log('switchToChain', networkInfo)
-    const currentNetwork = await this._standardAptosWallet.features['aptos:network'].network()
-    if (currentNetwork.chainId === networkInfo.chainId) return
-    const feature = this._standardAptosWallet.features['aptos:changeNetwork']
-    if (!feature) {
-      throw new Error('Wallet not implement error')
+  async estimateGas (parameter: TransactionParameter, config: SuiTokenConfigWithRpc) {
+    const client = new SuiClient({ url: config.chainRpcUrl })
+    const tx = new Transaction()
+    let coinObjectId
+    if (config.coinType === '0x2::sui::SUI') {
+      coinObjectId = tx.gas
+    } else {
+      const client = new SuiClient({ url: config.chainRpcUrl })
+      const { data: coins } = await client.getCoins({
+        owner: parameter.from,
+        coinType: config.coinType
+      })
+      coinObjectId = coins[0].coinObjectId
     }
-
-    await feature.changeNetwork(networkInfo)
+    const [coin] = tx.splitCoins(coinObjectId, [parseUnits(parameter.value, config.decimals)])
+    tx.transferObjects([coin], parameter.to)
+    const result = await client.devInspectTransactionBlock({
+      sender: parameter.from,
+      transactionBlock: tx
+    })
+    const { computationCost, storageCost, storageRebate } = result.effects.gasUsed
+    return Number(computationCost + storageCost) - Number(storageRebate) + ''
   }
 
-  onAccountsChanged (account: AccountInfo) {
-    const address = account.address.toString()
+  onAccountsChanged (properties: StandardEventsChangeProperties) {
+    if (properties.accounts == null) return
+    const account = properties.accounts[0]
+    const address = account.address
 
     this.accountChangedEvents.forEach(event => {
       event(address)

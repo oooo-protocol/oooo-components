@@ -11,6 +11,7 @@ import BINANCE_IMAGE from './images/binance.png'
 import NIGHTLY_IMAGE from './images/nightly.png'
 import RAZOR_IMAGE from './images/razor.png'
 import MARTIAN_IMAGE from './images/martian.png'
+import SUIET_IMAGE from './images/suiet.png'
 import { WALLET } from './types'
 import { defineMap } from '@preflower/utils'
 
@@ -98,6 +99,11 @@ export const WALLETS = [
     name: 'MARTIAN',
     value: WALLET.MARTIAN,
     image: MARTIAN_IMAGE
+  },
+  {
+    name: 'SUIET',
+    value: WALLET.SUIET,
+    image: SUIET_IMAGE
   }
 ]
 
@@ -145,4 +151,8 @@ export const APTOS_WALLETS = [
 export const MOVMENT_APTOS_WALLETS = [
   WALLET.RAZOR,
   WALLET.NIGHTLY
+]
+
+export const SUI_WALLETS = [
+  WALLET.SUIET
 ]
